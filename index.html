@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deskwork Tools — Free Resume Builder, File Converter &amp; Student Tools</title>
+<meta name="description" content="Free online tools for resumes, documents, images, students, and everyday work — processed privately in your browser with nothing uploaded.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta property="og:title" content="Deskwork Tools — Free Resume Builder, File Converter &amp; Student Tools">
+<meta property="og:description" content="Free browser-based tools: resume builder, Japanese rirekisho, image converter/compressor, document scanner, GPA calculator, citation generator.">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://deskworktools.github.io/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Deskwork Tools",
+  "url": "https://deskworktools.github.io/",
+  "description": "Free browser-based tools: resume builder, image converter/compressor, GPA calculator, citation generator.",
+  "applicationCategory": "Utility",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/src/index.css">
+
+<!-- External Document & PDF Processing Libraries -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+<div id="toast" role="status" aria-live="polite"></div>
+
+<header class="site">
+  <div class="wrap">
+    <div class="top-nav-bar">
+      <a href="index.html" class="brand" aria-label="Deskwork Tools">
+        <img src="/images/deskwork-tools-brand-logo.png?v=20260918" alt="Deskwork Tools" class="site-logo" width="138" height="44">
+        <h1 class="sr-only">Deskwork Tools</h1>
+      </a>
+      <nav class="site-nav" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link active">Tools</a>
+        <a href="faq.html" class="nav-link">FAQ</a>
+        <a href="blog/index.html" class="nav-link">Blog</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+    </div>
+    <p class="tag">Free online tools for resumes, documents, images, students, and everyday work — processed privately in your browser.</p>
+    <div class="privacy-badge">
+      <span class="shield-icon" aria-hidden="true">🛡️</span> <strong>100% Client-Side Privacy:</strong> Your files and personal data never leave your device.
+    </div>
+    <nav class="tabs" aria-label="Tool Categories">
+      <button type="button" class="tab-btn active" data-panel="resume">Resume Builder</button>
+      <button type="button" class="tab-btn" data-panel="japan">Japan Format</button>
+      <button type="button" class="tab-btn" data-panel="letter">Letter &amp; Email Writer</button>
+      <button type="button" class="tab-btn" data-panel="convert">File Tools</button>
+      <button type="button" class="tab-btn" data-panel="student">Student Tools</button>
+      <button type="button" class="tab-btn" data-panel="blogwriter">Blog Composer</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <!-- Inert Public Ad Placement Hook: Header Leaderboard (Phase 4) -->
+    <div id="ad-slot-header" class="deskwork-ad-container ad-slot-header" style="display:none;" aria-hidden="true"></div>
+
+    <!-- 1. RESUME BUILDER -->
+    <section class="panel active" id="resume">
+      <div class="tool-intro" id="resume-builder">
+        <h2>Free Resume Builder — No Account, No Watermark</h2>
+        <p>Build a clean, professional resume formatted for international job applications, ATS systems, academic careers, or regional markets in Bangladesh and the Gulf. Enter your details, choose from 10 free layout templates, and download your print-ready PDF or Word document instantly.</p>
+        <a href="faq.html#resume-builder-faq" class="tool-faq-link">Read the full explanation in FAQ &rarr;</a>
+      </div>
+      <div class="two-col">
+        <div>
+          <div class="card">
+            <h2>Your details</h2>
+            <p class="desc">Fill this in — the preview updates as you type.</p>
+            <label for="r-name">Full name</label>
+            <input type="text" id="r-name" placeholder="Jordan Rivera">
+            <div id="title-field-section">
+              <label for="r-title">Professional Title <span style="font-weight:400;color:var(--ink-soft);">(optional — e.g. "Civil Engineer")</span></label>
+              <input type="text" id="r-title" placeholder="Civil Engineer">
+            </div>
+            <div class="row2">
+              <div><label for="r-email">Email</label><input type="text" id="r-email" placeholder="jordan@email.com"></div>
+              <div><label for="r-phone">Phone</label><input type="text" id="r-phone" placeholder="+1 555 010 2020"></div>
+            </div>
+            <label for="r-location">Location</label>
+            <input type="text" id="r-location" placeholder="Dhaka, Bangladesh">
+            <div id="linkedin-field-section">
+              <label for="r-linkedin">LinkedIn <span style="font-weight:400;color:var(--ink-soft);">(optional)</span></label>
+              <input type="text" id="r-linkedin" placeholder="linkedin.com/in/yourname">
+            </div>
+            <label for="r-summary">Summary</label>
+            <textarea id="r-summary" placeholder="One or two sentences on who you are and what you're looking for."></textarea>
+            <button type="button" class="btn ghost small" style="margin-top:8px;" onclick="autoDraftSummary()">⚡ Auto-draft summary from your details</button>
+            <div id="photo-section" class="upload-box-wrapper" style="border-top:1px solid var(--line);padding-top:14px;">
+              <div class="upload-box-header">
+                <strong>Photo</strong>
+                <span class="upload-sub">(optional — used by templates with a photo slot)</span>
+              </div>
+              <div class="file-upload-box" id="r-photo-box">
+                <input type="file" id="r-photo" accept="image/*" class="file-upload-input" aria-label="Upload resume photo">
+                <div class="file-upload-prompt" id="r-photo-prompt">
+                  <div class="file-upload-icon-circle">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                  </div>
+                  <div class="file-upload-texts">
+                    <span class="file-upload-btn-ui">Choose / Upload Photo</span>
+                    <span class="upload-drop-hint">Click to browse or drag &amp; drop your photo (PNG, JPG, WEBP)</span>
+                  </div>
+                </div>
+                <div id="r-photo-thumb-wrap" class="upload-thumb-container" style="display:none;">
+                  <img id="r-photo-thumb" alt="Uploaded photo preview" class="upload-thumb-img">
+                  <div class="upload-thumb-info">
+                    <span class="upload-status-badge">✓ Photo Added</span>
+                    <div class="upload-action-row">
+                      <button type="button" class="btn ghost small" id="btn-remove-r-photo" style="color:var(--stamp-dark);font-weight:600;" onclick="removeResumePhoto()">Remove photo</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="signature-section" class="upload-box-wrapper" style="border-top:1px solid var(--line);padding-top:14px;">
+              <div class="upload-box-header">
+                <strong>Signature</strong>
+                <span class="upload-sub">(optional — a photo of your signature, used by the Bangladesh declaration)</span>
+              </div>
+              <div class="file-upload-box" id="r-sig-box">
+                <input type="file" id="r-signature" accept="image/*" class="file-upload-input" aria-label="Upload signature photo">
+                <div class="file-upload-prompt" id="r-sig-prompt">
+                  <div class="file-upload-icon-circle">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+                  </div>
+                  <div class="file-upload-texts">
+                    <span class="file-upload-btn-ui">Choose / Upload Signature</span>
+                    <span class="upload-drop-hint">Click to browse or drag &amp; drop your signature photo (PNG, JPG, WEBP)</span>
+                  </div>
+                </div>
+                <div id="r-sig-thumb-wrap" class="upload-thumb-container" style="display:none;">
+                  <img id="r-sig-thumb" alt="Uploaded signature preview" class="upload-thumb-sig">
+                  <div class="upload-thumb-info">
+                    <span class="upload-status-badge">✓ Signature Added</span>
+                    <div class="upload-action-row">
+                      <button type="button" class="btn ghost small" id="btn-remove-r-sig" style="color:var(--stamp-dark);font-weight:600;" onclick="removeResumeSig()">Remove signature</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row2" id="dob-nat-section" style="margin-top:14px;">
+              <div><label for="r-dob">Date of birth <span style="font-weight:400;color:var(--ink-soft);">(optional)</span></label><input type="text" id="r-dob" placeholder="04 Jan 1998"></div>
+              <div><label for="r-nationality">Nationality <span style="font-weight:400;color:var(--ink-soft);">(optional)</span></label><input type="text" id="r-nationality" placeholder="Bangladeshi"></div>
+            </div>
+          </div>
+
+          <div class="card" id="bd-fields-section">
+            <h2>Bangladesh-standard fields <span style="font-weight:400;font-size:.8rem;color:var(--ink-soft);">(used by Bangladesh Standard &amp; Classic templates)</span></h2>
+            <p class="desc">Personal demographic information, addresses, and NID standard for Bangladeshi CVs &amp; resumes.</p>
+            <div class="row2">
+              <div><label for="r-father">Father's name</label><input type="text" id="r-father" placeholder="Father's full name"></div>
+              <div><label for="r-mother">Mother's name</label><input type="text" id="r-mother" placeholder="Mother's full name"></div>
+            </div>
+            <div class="row2">
+              <div><label for="r-marital">Marital status</label>
+                <select id="r-marital">
+                  <option value="">Prefer not to say</option>
+                  <option value="Single">Single</option>
+                  <option value="Married">Married</option>
+                </select>
+              </div>
+              <div><label for="r-religion">Religion <span style="font-weight:400;color:var(--ink-soft);">(optional)</span></label><input type="text" id="r-religion" placeholder="e.g. Islam, Hinduism"></div>
+            </div>
+            <div class="row2">
+              <div><label for="r-gender">Sex <span style="font-weight:400;color:var(--ink-soft);">(optional)</span></label>
+                <select id="r-gender">
+                  <option value="">Prefer not to say</option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+              <div><label for="r-nid">NID number</label><input type="text" id="r-nid" placeholder="National ID number"></div>
+            </div>
+            <div class="row2">
+              <div><label for="r-present-addr">Present address</label><input type="text" id="r-present-addr" placeholder="House, Road, Area, City"></div>
+              <div><label for="r-permanent-addr">Permanent address</label><input type="text" id="r-permanent-addr" placeholder="Village/P.O., Upazila, District"></div>
+            </div>
+          </div>
+
+          <div class="card" id="languages-section">
+            <h2>Languages <span style="font-weight:400;font-size:.8rem;color:var(--ink-soft);">(optional — plain list)</span></h2>
+            <label for="r-languages">Languages <span style="font-weight:400;color:var(--ink-soft);">(one per line or comma-separated)</span></label>
+            <textarea id="r-languages" rows="3" placeholder="English - Fluent&#10;Bangla - Native&#10;Japanese - Intermediate"></textarea>
+          </div>
+
+          <div class="card" id="references-section">
+            <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:6px;">
+              <h2 style="margin:0;">References <span style="font-weight:400;font-size:.8rem;color:var(--ink-soft);">(optional)</span></h2>
+              <label style="font-size:0.8rem;color:var(--ink-soft);display:flex;align-items:center;gap:6px;cursor:pointer;margin:0;font-weight:500;">
+                <input type="checkbox" id="r-include-references" onchange="if(typeof renderAll==='function')renderAll();if(typeof saveDataImmediate==='function')saveDataImmediate();"> Include on CV
+              </label>
+            </div>
+            <textarea id="r-references" placeholder="Leave blank to omit, or list referee name, designation, company/university, phone, and email."></textarea>
+          </div>
+
+          <div class="card" id="training-section">
+            <h2>Training &amp; Certifications <span style="font-weight:400;font-size:.8rem;color:var(--ink-soft);">(optional — used by Bangladesh Standard, Gulf, Classic, Modern)</span></h2>
+            <label for="r-training">Training &amp; Certifications <span style="font-weight:400;color:var(--ink-soft);">(one per line)</span></label>
+            <textarea id="r-training" placeholder="Project Management Professional (PMP) - 2019&#10;AWS Certified Solutions Architect - 2022"></textarea>
+          </div>
+
+          <div class="card" id="gulf-fields-section">
+            <h2>Gulf/Middle East Fields <span style="font-weight:400;font-size:.8rem;color:var(--ink-soft);">(used by the Gulf template)</span></h2>
+            <div class="row2">
+              <div><label for="r-passport">Passport number <span style="font-weight:400;color:var(--ink-soft);">(optional)</span></label><input type="text" id="r-passport" placeholder="A12345678"></div>
+              <div><label for="r-visa-status">Visa status</label><input type="text" id="r-visa-status" placeholder="e.g. Visit visa, Residence visa"></div>
+            </div>
+            <label for="r-driving-license">Driving license</label>
+            <select id="r-driving-license">
+              <option value="No">No</option>
+              <option value="Yes">Yes</option>
+            </select>
+          </div>
+
+          <div class="card" id="skills-langs-hobbies-section">
+            <h2>Rated Skills, Languages &amp; Hobbies <span style="font-weight:400;font-size:.8rem;color:var(--ink-soft);">(used by Gulf and International templates)</span></h2>
+            <label for="r-hobbies">Hobbies <span style="font-weight:400;color:var(--ink-soft);">(comma-separated)</span></label>
+            <input type="text" id="r-hobbies" placeholder="Hunting, Sport, Reading">
+            <label style="margin-top:14px;">Software Skills</label>
+            <div id="sw-skill-list"></div>
+            <button type="button" class="btn ghost small" onclick="addSwSkillRow()">+ Add software skill</button>
+            <label style="margin-top:14px;">Language Proficiency</label>
+            <div id="gulf-lang-list"></div>
+            <button type="button" class="btn ghost small" onclick="addGulfLangRow()">+ Add language</button>
+          </div>
+
+          <div class="card" id="academic-fields-section">
+            <h2>Academic Fields <span style="font-weight:400;font-size:.8rem;color:var(--ink-soft);">(optional — used by the Academic template)</span></h2>
+            <label for="r-research-interests">Research interests</label>
+            <textarea id="r-research-interests" placeholder="Machine learning, computational biology, ..."></textarea>
+            <div id="pub-list" style="margin-top:10px;"></div>
+            <button type="button" class="btn ghost small" onclick="addPubRow()">+ Add publication</button>
+            <div id="conf-list" style="margin-top:14px;"></div>
+            <button type="button" class="btn ghost small" onclick="addConfRow()">+ Add conference/presentation</button>
+            <label for="r-awards" style="margin-top:14px;">Grants &amp; Awards <span style="font-weight:400;color:var(--ink-soft);">(one per line)</span></label>
+            <textarea id="r-awards" placeholder="Best Paper Award, ACM Conference 2024"></textarea>
+          </div>
+
+          <div class="card">
+            <h2>Experience</h2>
+            <p class="desc">Add roles, most recent first.</p>
+            <div id="exp-list"></div>
+            <button type="button" class="btn ghost small" onclick="addExp()">+ Add role</button>
+          </div>
+
+          <div class="card">
+            <h2>Education</h2>
+            <div id="edu-list"></div>
+            <button type="button" class="btn ghost small" onclick="addEdu()">+ Add education</button>
+          </div>
+
+          <div class="card" id="skills-section">
+            <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
+              <h2 style="margin:0;">Skills</h2>
+              <div id="skills-display-option" class="format-toggle" style="display:inline-flex;align-items:center;gap:4px;font-size:0.75rem;">
+                <span style="color:var(--ink-soft);font-size:0.72rem;margin-right:2px;font-weight:600;">Skills Display:</span>
+                <button type="button" id="btn-skills-mode-list" class="btn-mode-pill active" data-mode="list" onclick="setSkillsDisplayMode('list')">List</button>
+                <button type="button" id="btn-skills-mode-summary" class="btn-mode-pill" data-mode="summary" onclick="setSkillsDisplayMode('summary')">Summary</button>
+              </div>
+            </div>
+            <p class="desc" style="margin-top:6px;">Comma-separated.</p>
+            <input type="text" id="r-skills" placeholder="AutoCAD, Python, Microsoft Excel, Photoshop">
+          </div>
+
+          <div class="card" id="langskills-section">
+            <h2 id="langskills-section-heading">Language Proficiency, Computing &amp; Strengths <span style="font-weight:400;font-size:.8rem;color:var(--ink-soft);">(optional — used by Bangladesh Classic and Europass templates)</span></h2>
+            <p class="desc" id="langskills-desc">Rate each language you speak.</p>
+            <div id="lang-list"></div>
+            <button type="button" class="btn ghost small" onclick="addLangRow()">+ Add language</button>
+            <div class="row2" style="margin-top:16px;">
+              <div><label for="r-computing-os">Computing — Operating skills</label><input type="text" id="r-computing-os" placeholder="MS Word, Excel, PowerPoint"></div>
+              <div><label for="r-computing-software">Computing — Application software</label><input type="text" id="r-computing-software" placeholder="Windows 7–11"></div>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-top:16px;margin-bottom:4px;">
+              <label for="r-strengths" id="lbl-strengths" style="margin:0;">Capabilities / Strengths</label>
+              <div class="format-toggle" style="display:inline-flex;align-items:center;gap:4px;font-size:0.75rem;">
+                <span style="color:var(--ink-soft);font-size:0.72rem;margin-right:2px;">Format:</span>
+                <button type="button" id="btn-strengths-mode-summary" class="btn-mode-pill" data-mode="summary" onclick="setStrengthsMode('summary')">Summary</button>
+                <button type="button" id="btn-strengths-mode-list" class="btn-mode-pill active" data-mode="list" onclick="setStrengthsMode('list')">List</button>
+              </div>
+            </div>
+            <textarea id="r-strengths" data-mode="list" placeholder="Ability to work under pressure&#10;Self-motivated and goal-driven&#10;Habituated with teamwork"></textarea>
+            <p id="strengths-hint" class="desc" style="font-size:0.75rem;margin-top:4px;color:var(--ink-soft);">In List mode, enter one item per line. In Summary mode, enter a paragraph.</p>
+            <button type="button" class="btn ghost small" style="margin-top:8px;" onclick="autoDraftStrengths()">⚡ Auto-draft bullet points from Experience &amp; Skills</button>
+          </div>
+        </div>
+
+        <div class="sticky">
+          <div class="card" style="padding:16px;">
+            <h2 style="font-size:1rem;">Preview</h2>
+            <div class="preview-scroll-wrapper">
+              <div class="resume-preview tmpl-classic" id="preview"></div>
+            </div>
+            <div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+              <button type="button" class="btn primary" id="btn-resume-preview" onclick="openDocumentPreview('resume')">⬇ Download as PDF</button>
+              <button type="button" class="btn ghost small" onclick="confirmResetResume()" style="color:var(--stamp-dark);margin-left:auto;" title="Clear all fields">Reset Form</button>
+            </div>
+            <p style="font-size:.78rem;color:var(--ink-soft);margin-top:10px;">Opens a print-ready document preview where you can review your formatted resume, save as PDF, or print.</p>
+          </div>
+
+          <div class="card">
+            <h2 style="font-size:1rem;">Templates <span class="premium-badge">10 free</span></h2>
+            <p class="desc">Pick the format that fits where you're applying.</p>
+            <div style="display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap;">
+              <button type="button" class="btn ghost small tmpl-btn active" data-tmpl="classic" onclick="setTemplate('classic')">Classic</button>
+              <button type="button" class="btn ghost small tmpl-btn" data-tmpl="modern" onclick="setTemplate('modern')">Modern</button>
+              <button type="button" class="btn ghost small tmpl-btn" data-tmpl="compact" onclick="setTemplate('compact')">Compact (US/ATS)</button>
+              <button type="button" class="btn ghost small tmpl-btn" data-tmpl="intl" onclick="setTemplate('intl')">International</button>
+              <button type="button" class="btn ghost small tmpl-btn" data-tmpl="bd" onclick="setTemplate('bd')">Bangladesh Standard</button>
+              <button type="button" class="btn ghost small tmpl-btn" data-tmpl="bd2" onclick="setTemplate('bd2')">Bangladesh Classic</button>
+              <button type="button" class="btn ghost small tmpl-btn" data-tmpl="sidebar" onclick="setTemplate('sidebar')">Sidebar</button>
+              <button type="button" class="btn ghost small tmpl-btn" data-tmpl="europass" onclick="setTemplate('europass')">Europass (EU)</button>
+              <button type="button" class="btn ghost small tmpl-btn" data-tmpl="gulf" onclick="setTemplate('gulf')">Gulf / Middle East</button>
+              <button type="button" class="btn ghost small tmpl-btn" data-tmpl="academic" onclick="setTemplate('academic')">Academic</button>
+            </div>
+            <div id="tmpl-info-banner" style="font-size:0.80rem;color:var(--ink-soft);background:var(--card);border:1px solid var(--line);border-radius:var(--radius-sm);padding:8px 12px;line-height:1.45;"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. JAPAN FORMAT (Rirekisho) -->
+    <section class="panel" id="japan">
+      <div class="tool-intro" id="rirekisho">
+        <h2>Japan Rirekisho (履歴書) Builder</h2>
+        <p>Create an official JIS-standard bilingual Japanese resume (履歴書) for job applications, SSW visas, and Technical Intern Training in Japan. Fill in the bilingual sections, review the live preview, and export your print-ready document.</p>
+        <a href="faq.html#rirekisho-faq" class="tool-faq-link">Read the full explanation in FAQ &rarr;</a>
+      </div>
+      <div class="two-col">
+        <div>
+          <div class="card">
+            <h2>Basic Information <span style="font-weight:400;font-size:.8rem;color:var(--ink-soft);">基本情報</span></h2>
+            <label for="jp-fullname">氏名 / Full Name</label>
+            <input type="text" id="jp-fullname" placeholder="MD EMON AHMED">
+            <label for="jp-furigana">ふりがな / Furigana <span style="font-weight:400;color:var(--ink-soft);">(katakana reading of your name)</span></label>
+            <input type="text" id="jp-furigana" placeholder="エムディ エモン アハメド">
+            <label for="jp-marriage">婚姻 / Marriage</label>
+            <select id="jp-marriage"><option value="Unmarried">未婚 / Unmarried</option><option value="Married">既婚 / Married</option></select>
+            <label for="jp-dob">生年月日 / Date of Birth</label>
+            <input type="text" id="jp-dob" placeholder="17 July 2004">
+            <label for="jp-age">満年齢 / Age</label>
+            <input type="text" id="jp-age" placeholder="22">
+            <label for="jp-permanent-addr">本籍地 / Permanent Address</label>
+            <input type="text" id="jp-permanent-addr" placeholder="HARIDIA, LOUHAJONG - 1533, MUNSHIGANJ">
+            <div id="jp-photo-section" class="upload-box-wrapper" style="border-top:1px solid var(--line);padding-top:14px;">
+              <div class="upload-box-header">
+                <strong>写真 / Photo</strong>
+                <span class="upload-sub">(3x4cm ID photo format for Japanese Rirekisho)</span>
+              </div>
+              <div class="file-upload-box" id="jp-photo-box">
+                <input type="file" id="jp-photo" accept="image/*" class="file-upload-input" aria-label="Upload Japan format photo">
+                <p class="upload-drop-hint">Click &ldquo;Choose File&rdquo; or drag and drop a 3x4cm headshot (PNG, JPG, WEBP)</p>
+                <div id="jp-photo-thumb-wrap" class="upload-thumb-container" style="display:none;">
+                  <img id="jp-photo-thumb" alt="Japan format photo preview" class="upload-thumb-img">
+                  <div class="upload-thumb-info">
+                    <span class="upload-status-badge">✓ 写真添付済 / Photo Added</span>
+                    <div class="upload-action-row">
+                      <button type="button" class="btn ghost small" id="btn-remove-jp-photo" style="color:var(--stamp-dark);font-weight:600;" onclick="removeJapanPhoto()">Remove photo</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <h2>Physical &amp; Health <span style="font-weight:400;font-size:.8rem;color:var(--ink-soft);">身体状況</span></h2>
+            <div class="row2">
+              <div><label for="jp-height">身長 / Height (cm)</label><input type="text" id="jp-height" placeholder="167"></div>
+              <div><label for="jp-weight">体重 / Weight (kg)</label><input type="text" id="jp-weight" placeholder="56"></div>
+            </div>
+            <div class="row2">
+              <div><label for="jp-hand">利き手 / Dominant hand</label><select id="jp-hand"><option value="Right">右 / Right</option><option value="Left">左 / Left</option></select></div>
+              <div><label for="jp-blood">血液型 / Blood type</label><select id="jp-blood">
+                <option>O+</option><option>O-</option>
+                <option>A+</option><option>A-</option>
+                <option>B+</option><option>B-</option>
+                <option>AB+</option><option>AB-</option>
+              </select></div>
+            </div>
+            <div class="row2">
+              <div><label for="jp-eye-left">視力 左 / Eyesight Left</label><input type="text" id="jp-eye-left" placeholder="1.0"></div>
+              <div><label for="jp-eye-right">視力 右 / Eyesight Right</label><input type="text" id="jp-eye-right" placeholder="1.0"></div>
+            </div>
+            <div class="row2">
+              <div><label for="jp-tattoo">入れ墨 / Tattoo</label><select id="jp-tattoo"><option value="No">無 / No</option><option value="Yes">有 / Yes</option></select></div>
+              <div><label for="jp-colorblind">色覚異常 / Color blindness</label><select id="jp-colorblind"><option value="No">無 / No abnormality</option><option value="Yes">有 / Abnormality</option></select></div>
+            </div>
+            <div class="row2">
+              <div><label for="jp-smoking">タバコ / Smoking</label><select id="jp-smoking"><option value="No">無 / No</option><option value="Yes">有 / Yes</option></select></div>
+              <div><label for="jp-drinking">お酒 / Drinking</label><select id="jp-drinking"><option value="No">無 / No</option><option value="Yes">有 / Yes</option></select></div>
+            </div>
+            <label for="jp-medical">病歴 / Medical history</label>
+            <select id="jp-medical"><option value="No">無 / No abnormality</option><option value="Yes">有 / Abnormality</option></select>
+            <label for="jp-driving-license" style="margin-top:10px;">運転免許 / Driving License</label>
+            <select id="jp-driving-license"><option value="No">無 / No</option><option value="Yes">有 / Yes</option></select>
+          </div>
+
+          <div class="card">
+            <h2>Academic Background <span style="font-weight:400;font-size:.8rem;color:var(--ink-soft);">学歴</span></h2>
+            <div id="jp-edu-list"></div>
+            <button type="button" class="btn ghost small" onclick="addJpEdu()">+ Add school</button>
+          </div>
+
+          <div class="card">
+            <h2>Language Proficiency <span style="font-weight:400;font-size:.8rem;color:var(--ink-soft);">語学力</span></h2>
+            <p class="desc">Add every certification you've completed — you can list several.</p>
+            <div id="jp-lang-cert-list"></div>
+            <button type="button" class="btn ghost small" onclick="addJpLangCert()">+ Add certification</button>
+            <label for="jp-english" style="margin-top:14px;">英語 / English level</label>
+            <select id="jp-english">
+              <option value="Beginner">初級 / Beginner</option>
+              <option value="Daily conversation">日常会話 / Daily conversation</option>
+              <option value="Business level">ビジネスレベル / Business level</option>
+            </select>
+          </div>
+
+          <div class="card">
+            <h2>Work History <span style="font-weight:400;font-size:.8rem;color:var(--ink-soft);">職歴</span></h2>
+            <div id="jp-work-list"></div>
+            <button type="button" class="btn ghost small" onclick="addJpWork()">+ Add job</button>
+          </div>
+
+          <div class="card">
+            <h2>Other Information <span style="font-weight:400;font-size:.8rem;color:var(--ink-soft);">その他情報</span></h2>
+            <label for="jp-other-qual">その他資格 / Other qualifications</label>
+            <input type="text" id="jp-other-qual" placeholder="Agriculture, Driving">
+            <label for="jp-personality">長所・性格 / Personality</label>
+            <input type="text" id="jp-personality" placeholder="Responsible and hard-working">
+            <div class="row2">
+              <div><label for="jp-hobby">趣味 / Hobby</label><input type="text" id="jp-hobby" placeholder="Reading"></div>
+              <div><label for="jp-favorite-subject">得意科目 / Favorite subjects</label><input type="text" id="jp-favorite-subject" placeholder="Japanese language study"></div>
+            </div>
+            <div class="row2">
+              <div><label for="jp-group-living">集団生活経験 / Group living experience</label><select id="jp-group-living"><option value="No">無 / No</option><option value="Yes">有 / Yes</option></select></div>
+              <div><label for="jp-cooking">料理経験 / Cooking experience</label><select id="jp-cooking"><option value="No">無 / No</option><option value="Yes">有 / Yes</option></select></div>
+            </div>
+            <label for="jp-dietary">宗教上の食事制限 / Religiously prohibited foods</label>
+            <input type="text" id="jp-dietary" placeholder="Pork, Alcohol">
+            <label for="jp-worship">礼拝習慣 / Worship practice</label>
+            <input type="text" id="jp-worship" placeholder="Will worship without disrupting work">
+            <label for="jp-fasting">断食 / Fasting</label>
+            <select id="jp-fasting"><option value="No">無 / No</option><option value="Yes">有 / Yes</option></select>
+          </div>
+
+          <div class="card">
+            <h2>Future Plans <span style="font-weight:400;font-size:.8rem;color:var(--ink-soft);">今後の計画</span></h2>
+            <label for="jp-remittance">毎月の送金計画 / Monthly remittance intention</label>
+            <input type="text" id="jp-remittance" placeholder="e.g. About half of my salary">
+            <label for="jp-longterm">5年以降の滞在希望 / Desire to stay in Japan long-term</label>
+            <input type="text" id="jp-longterm" placeholder="e.g. Would like to stay longer if there's an opportunity">
+            <div class="row2">
+              <div><label for="jp-residence-applied">在留資格申請歴 / Previously applied for residence status?</label><select id="jp-residence-applied"><option value="No">無 / No</option><option value="Yes">有 / Yes</option></select></div>
+              <div><label for="jp-residence-detail">If yes, details</label><input type="text" id="jp-residence-detail" placeholder="When and what status"></div>
+            </div>
+          </div>
+
+          <div class="card">
+            <h2>Family Structure <span style="font-weight:400;font-size:.8rem;color:var(--ink-soft);">家族構成</span></h2>
+            <div id="jp-family-list"></div>
+            <button type="button" class="btn ghost small" onclick="addJpFamily()">+ Add family member</button>
+            <div class="row2" style="margin-top:14px;">
+              <div><label for="jp-relatives-japan">日本在住親族 / Relatives living in Japan?</label><select id="jp-relatives-japan"><option value="No">無 / No</option><option value="Yes">有 / Yes</option></select></div>
+              <div><label for="jp-relatives-who">If yes, who</label><input type="text" id="jp-relatives-who" placeholder="Name and relationship"></div>
+            </div>
+            <label for="jp-family-opinion">訪日に対する家族の意見 / Family's view on you going to Japan</label>
+            <select id="jp-family-opinion"><option value="Agree">賛成 / Agree</option><option value="Not agree">反対 / Not agree</option></select>
+          </div>
+        </div>
+
+        <div class="sticky">
+          <div class="card" style="padding:16px;">
+            <h2 style="font-size:1rem;">Preview</h2>
+            <div class="preview-scroll-wrapper">
+              <div class="resume-preview tmpl-jp" id="jp-preview"></div>
+            </div>
+            <div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+              <button type="button" class="btn primary" id="btn-japan-preview" onclick="openDocumentPreview('japan')">⬇ Download as PDF</button>
+              <button type="button" class="btn ghost small" onclick="confirmResetJapan()" style="color:var(--stamp-dark);margin-left:auto;" title="Clear all fields">Reset Form</button>
+            </div>
+            <p style="font-size:.78rem;color:var(--ink-soft);margin-top:10px;">Opens a print-ready document preview where you can review your JIS-standard Rirekisho, save as PDF, or print.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. COVER LETTER & EMAIL WRITER -->
+    <section class="panel" id="letter">
+      <div class="tool-intro" id="letter-writer">
+        <h2>Professional Email &amp; Letter Writer</h2>
+        <p>Draft structured, polite, and persuasive formal emails and letters for job applications, school inquiries, support requests, and everyday communications. Choose your purpose, fill in the guided points, and copy the drafted text or download as PDF.</p>
+        <a href="faq.html#letter-writer-faq" class="tool-faq-link">Read the full explanation in FAQ &rarr;</a>
+      </div>
+      <div class="two-col">
+        <div>
+          <div class="card">
+            <h2>Letter Details</h2>
+            <p class="desc">Contact details come from the Resume Builder tab automatically.</p>
+            <label for="l-yourname">Your name <span style="font-weight:400;color:var(--ink-soft);">(optional — leave blank to use the name from Resume Builder)</span></label>
+            <input type="text" id="l-yourname" placeholder="Leave blank to use your Resume Builder name" oninput="renderLetter()">
+            <label for="l-purpose">Purpose</label>
+            <select id="l-purpose" onchange="onLetterPurposeChange()">
+              <option value="job">Job Application</option>
+              <option value="request">General Request / Inquiry</option>
+              <option value="complaint">Complaint / Feedback</option>
+              <option value="school">School / Teacher Email</option>
+              <option value="account">Account Recovery / Support</option>
+              <option value="thanks">Thank You / Follow-up</option>
+              <option value="custom">Custom / Other</option>
+            </select>
+            <div class="row2">
+              <div><label id="l-company-label" for="l-company">Company name</label><input type="text" id="l-company" placeholder="Acme Inc." oninput="renderLetter()"></div>
+              <div><label id="l-jobtitle-label" for="l-jobtitle">Job title</label><input type="text" id="l-jobtitle" placeholder="Software Engineer" oninput="renderLetter()"></div>
+            </div>
+            <label id="l-manager-label" for="l-manager">Hiring manager <span style="font-weight:400;color:var(--ink-soft);">(optional)</span></label>
+            <input type="text" id="l-manager" placeholder="Leave blank to use &quot;Hiring Manager&quot;" oninput="renderLetter()">
+            <label id="l-extra-label" for="l-extra">Referral <span style="font-weight:400;color:var(--ink-soft);">(optional)</span></label>
+            <input type="text" id="l-extra" placeholder="How you found this role" oninput="renderLetter()">
+          </div>
+
+          <div class="card">
+            <h2>Message body</h2>
+            <p class="desc">Write your own, or auto-draft a starting point.</p>
+            <button type="button" class="btn ghost small" onclick="autoDraftLetter()">⚡ Auto-draft</button>
+            <label for="l-opening" style="margin-top:16px;">Opening</label>
+            <textarea id="l-opening" oninput="renderLetter()" placeholder="Why you're writing."></textarea>
+            <label for="l-body">Body</label>
+            <textarea id="l-body" oninput="renderLetter()" placeholder="The main details."></textarea>
+            <label for="l-closing">Closing</label>
+            <textarea id="l-closing" oninput="renderLetter()" placeholder="Wrap up and next steps."></textarea>
+          </div>
+        </div>
+
+        <div class="sticky">
+          <div class="card" style="padding:16px;">
+            <h2 style="font-size:1rem;">Preview</h2>
+            <div class="preview-scroll-wrapper">
+              <div class="resume-preview" id="letter-preview" style="font-family:'IBM Plex Sans',sans-serif;"></div>
+            </div>
+            <div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+              <button type="button" class="btn primary" onclick="copyLetterToClipboard()">📋 Copy to clipboard</button>
+              <button type="button" class="btn ghost" id="btn-letter-preview" onclick="openDocumentPreview('letter')">⬇ Download as PDF</button>
+            </div>
+            <p style="font-size:.78rem;color:var(--ink-soft);margin-top:10px;">Copy pastes straight into your email or apps. Download as PDF opens a print-ready preview to inspect, save, or print.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. FILE TOOLS (panel id="convert") -->
+    <section class="panel" id="convert">
+      <div class="card" id="image-tools">
+        <h2>Image Resizer, Compressor &amp; Converter</h2>
+        <p class="desc">Resize image dimensions, compress file sizes, and convert between JPG, PNG, and WebP formats entirely in your browser with private local processing. Choose your target size or quality slider, select your image, and download.</p>
+        <p style="margin:-10px 0 16px 0;"><a href="faq.html#image-tools-faq" class="tool-faq-link">Read the full explanation in FAQ &rarr;</a></p>
+        <div class="drop" id="resize-drop-zone" onclick="document.getElementById('resize-file-input').click()">
+          <div id="resize-drop-label">Tap to choose an image, or drag one here</div>
+          <input type="file" id="resize-file-input" accept="image/*">
+        </div>
+        <img id="resize-preview-img" class="preview-img" style="display:none;" alt="Preview">
+        <div class="filemeta" id="resize-file-meta"></div>
+        <div id="resize-controls" style="display:none;">
+          <div class="row2">
+            <div><label for="resize-width">Width (px)</label><input type="number" id="resize-width" min="1" max="8000"></div>
+            <div><label for="resize-height">Height (px)</label><input type="number" id="resize-height" min="1" max="8000"></div>
+          </div>
+          <label style="display:flex;align-items:center;gap:8px;margin-top:10px;font-weight:400;">
+            <input type="checkbox" id="resize-lock-aspect" checked style="width:auto;">
+            Lock aspect ratio
+          </label>
+          <label for="resize-format">Output format</label>
+          <select id="resize-format">
+            <option value="image/png">PNG</option>
+            <option value="image/jpeg">JPG</option>
+            <option value="image/webp">WebP</option>
+          </select>
+          <label for="resize-size-mode">Size control</label>
+          <select id="resize-size-mode" onchange="toggleResizeSizeMode()">
+            <option value="quality">By quality</option>
+            <option value="target">By target file size</option>
+          </select>
+          <div id="resize-quality-mode-row" class="slider-row">
+            <label for="resize-quality" style="margin:0;white-space:nowrap;">Quality</label>
+            <input type="range" id="resize-quality" min="10" max="100" value="90">
+            <span id="resize-quality-val">90%</span>
+          </div>
+          <div id="resize-target-mode-row" class="row2" style="display:none;">
+            <div><input type="number" id="resize-target-size-value" min="1" placeholder="e.g. 50" value="50"></div>
+            <div><select id="resize-target-size-unit"><option value="KB">KB</option><option value="MB">MB</option></select></div>
+          </div>
+          <p id="resize-target-size-note" style="display:none;font-size:.78rem;color:var(--ink-soft);margin-top:6px;">Target size works with JPG and WebP. PNG is lossless, so its size can't be controlled this way — switch format if needed.</p>
+          <button type="button" class="btn primary" onclick="resizeImage()">Resize &amp; Download</button>
+          <div class="filemeta" id="resize-result-meta"></div>
+        </div>
+      </div>
+
+      <div class="card" id="pdf-tools">
+        <h2>File Compressor &amp; Converter (PDF &amp; Word)</h2>
+        <p class="desc">Convert PDF to Word (.rtf) or Word to PDF, and shrink oversized PDF files directly in your browser. Select your conversion mode or target size, choose your file, and save your document.</p>
+        <p style="margin:-10px 0 16px 0;"><a href="faq.html#pdf-tools-faq" class="tool-faq-link">Read the full explanation in FAQ &rarr;</a></p>
+        <div class="drop" id="doc-drop-zone" onclick="document.getElementById('doc-file-input').click()">
+          <div id="doc-drop-label">Tap to choose a PDF or Word (.docx) file</div>
+          <input type="file" id="doc-file-input" accept=".pdf,.docx">
+        </div>
+        <div class="filemeta" id="doc-file-meta"></div>
+        <div id="doc-pdf-actions" style="display:none;margin-top:14px;">
+          <button type="button" class="btn primary" onclick="convertPdfToWord()">Convert to Word (.rtf)</button>
+          <div style="margin-top:18px;padding-top:14px;border-top:1px solid var(--line);">
+            <label for="doc-size-mode">Compress PDF — Size control</label>
+            <select id="doc-size-mode" onchange="toggleDocSizeMode()">
+              <option value="quality">By quality</option>
+              <option value="target">By target file size</option>
+            </select>
+            <div id="doc-quality-mode-row" class="slider-row">
+              <label for="doc-quality" style="margin:0;white-space:nowrap;">Quality</label>
+              <input type="range" id="doc-quality" min="10" max="100" value="70">
+              <span id="doc-quality-val">70%</span>
+            </div>
+            <div id="doc-target-mode-row" class="row2" style="display:none;">
+              <div><input type="number" id="doc-target-size-value" min="1" placeholder="e.g. 500" value="500"></div>
+              <div><select id="doc-target-size-unit"><option value="KB">KB</option><option value="MB">MB</option></select></div>
+            </div>
+            <p style="font-size:.78rem;color:var(--ink-soft);margin-top:8px;">Compresses by converting each page to an optimized image — great for shrinking file size, but text won't be selectable afterward.</p>
+            <button type="button" class="btn primary" style="margin-top:8px;" onclick="compressPdfFile()">Compress &amp; Download</button>
+          </div>
+        </div>
+        <div id="doc-docx-actions" style="display:none;margin-top:14px;">
+          <button type="button" class="btn primary" onclick="convertDocxToPdf()">Convert to PDF</button>
+        </div>
+        <div class="filemeta" id="doc-result-meta"></div>
+      </div>
+    </section>
+
+    <!-- 5. STUDENT TOOLS (panel id="student") -->
+    <section class="panel" id="student">
+      <div class="card" id="scanner-tool">
+        <h2>Document Scanner</h2>
+        <p class="desc">Transform photos of documents into flat, high-contrast digital scans with 4-corner perspective correction and black-and-white filters. Snap or upload a photo, adjust the 4 corner dots, and download as clean PDF or image files.</p>
+        <p style="margin:-10px 0 16px 0;"><a href="faq.html#scanner-tool-faq" class="tool-faq-link">Read the full explanation in FAQ &rarr;</a></p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <button type="button" class="btn primary" onclick="document.getElementById('scan-camera-input').click()">📷 Take a photo</button>
+          <button type="button" class="btn ghost" onclick="document.getElementById('scan-gallery-input').click()">📁 Choose from gallery</button>
+        </div>
+        <input type="file" id="scan-camera-input" accept="image/*" capture="environment" style="display:none;">
+        <input type="file" id="scan-gallery-input" accept="image/*" style="display:none;">
+        <div id="scan-editor" style="display:none;margin-top:16px;">
+          <p class="desc" style="margin-bottom:8px;">Drag any of the <strong>6 dots</strong> to adjust the 4 corners and side edges of your document for a clean crop, or tap anywhere to reposition the nearest dot.</p>
+          <div style="display:flex;gap:6px;margin-bottom:10px;flex-wrap:wrap;align-items:center;">
+            <button type="button" class="btn small" id="btn-crop-6pt" onclick="setScanCropMode('6pt')">6 Dots (Corners &amp; Sides)</button>
+            <button type="button" class="btn ghost small" id="btn-crop-8pt" onclick="setScanCropMode('8pt')">8 Dots (All Sides)</button>
+            <button type="button" class="btn ghost small" id="btn-crop-4pt" onclick="setScanCropMode('4pt')">4 Corners</button>
+            <button type="button" class="btn ghost small" onclick="resetScanCorners(0.0)">Full Image</button>
+            <button type="button" class="btn ghost small" onclick="resetScanCorners(0.05)">Reset Crop</button>
+            <button type="button" class="btn ghost small" onclick="rotateScanSourceImage(-90)" title="Rotate Left 90°">↶ Rotate Left</button>
+            <button type="button" class="btn ghost small" onclick="rotateScanSourceImage(90)" title="Rotate Right 90°">↷ Rotate Right</button>
+          </div>
+          <div id="scan-canvas-wrap" style="position:relative;display:inline-block;max-width:100%;touch-action:none;user-select:none;-webkit-user-select:none;border-radius:4px;overflow:hidden;box-shadow:var(--shadow-sm);background:#1a1a1a;">
+            <img id="scan-source-img" style="max-width:100%;display:block;user-select:none;-webkit-user-select:none;pointer-events:none;" alt="Scan source">
+            <svg id="scan-quad-overlay" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;">
+              <defs>
+                <mask id="scan-crop-mask">
+                  <rect width="100%" height="100%" fill="white"/>
+                  <polygon id="scan-mask-poly" fill="black"/>
+                </mask>
+              </defs>
+              <rect width="100%" height="100%" fill="rgba(0,0,0,0.42)" mask="url(#scan-crop-mask)"/>
+              <polygon id="scan-quad-poly" fill="rgba(0,122,104,0.12)" stroke="#007A68" stroke-width="2.5" stroke-dasharray="6 3"/>
+              <line id="scan-grid-h" stroke="#007A68" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.6"/>
+              <line id="scan-grid-v" stroke="#007A68" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.6"/>
+            </svg>
+            <div id="scan-handles-container"></div>
+            <div id="scan-loupe" style="display:none;position:absolute;width:104px;height:104px;border-radius:50%;border:3px solid #007A68;box-shadow:0 6px 20px rgba(0,0,0,0.5);pointer-events:none;overflow:hidden;z-index:30;background:#fff;transform:translate(-50%,-125%);">
+              <canvas id="scan-loupe-canvas" width="104" height="104" style="display:block;"></canvas>
+              <div style="position:absolute;top:50%;left:50%;width:12px;height:12px;transform:translate(-50%,-50%);border:2px solid #C1443C;border-radius:50%;"></div>
+              <div style="position:absolute;top:50%;left:0;right:0;height:1px;background:rgba(193,68,60,0.5);"></div>
+              <div style="position:absolute;left:50%;top:0;bottom:0;width:1px;background:rgba(193,68,60,0.5);"></div>
+            </div>
+          </div>
+          <label for="scan-filter" style="margin-top:12px;font-weight:600;">Enhancement Filter</label>
+          <select id="scan-filter" style="width:100%;max-width:460px;">
+            <option value="enhanced" selected>✨ CamScanner Magic Color (Pure white paper + crisp text &amp; vivid seals)</option>
+            <option value="bw">Black &amp; white scan (high-contrast monochrome)</option>
+            <option value="grayscale">Grayscale scan (clean white background)</option>
+            <option value="original">Original photo (no enhancement)</option>
+          </select>
+          <div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;">
+            <button type="button" class="btn primary" onclick="applyScanCrop()">➕ Add this page</button>
+            <button type="button" class="btn ghost small" onclick="cancelScanEditor()">Cancel</button>
+          </div>
+        </div>
+        <div id="scan-pages-wrap" style="margin-top:16px;"></div>
+        <div id="scan-actions" style="display:none;margin-top:14px;gap:8px;flex-wrap:wrap;">
+          <button type="button" class="btn primary" onclick="downloadScanAsPdf()">Download as PDF</button>
+          <button type="button" class="btn ghost" onclick="downloadScanAsImages()">Download pages as images</button>
+          <button type="button" class="btn ghost small" onclick="clearScanPages()">Clear all</button>
+        </div>
+      </div>
+
+      <div class="card" id="gpa-card">
+        <h2 id="gpa-calculator">GPA &amp; Academic Result Calculator</h2>
+        <p class="desc">Calculate semester averages, cumulative CGPA, and degree classifications across Bangladesh (Diploma, Honours, SSC/HSC, NU, University), US 4.0, UK Honours, India 10-point, Canada, Australia, Europe ECTS, and Custom grading scales. Choose your system, enter course marks or credits, and view your cumulative breakdown.</p>
+        <p style="margin:-10px 0 16px 0;"><a href="faq.html#gpa-calculator-faq" class="tool-faq-link">Read the full explanation in FAQ &rarr;</a></p>
+        
+        <label for="gpa-system" style="font-weight:600;">Select your education system</label>
+        <select id="gpa-system" onchange="onGpaSystemChange()" style="font-size:.95rem;padding:9px 12px;border:1.5px solid var(--line);border-radius:var(--radius-sm);width:100%;">
+          <optgroup label="Bangladesh systems">
+            <option value="bd_diploma" selected>Bangladesh — Diploma in Engineering (8 Semesters)</option>
+            <option value="bd_honours">Bangladesh — Honours / Bachelor's Degree (4-Year)</option>
+            <option value="bd_ssc_hsc">Bangladesh — SSC / HSC GPA (5.00 Scale)</option>
+            <option value="bd_nu">Bangladesh — National University-style 4-year degree</option>
+            <option value="bd_uni">Bangladesh — General semester-based university (4.00 Scale)</option>
+          </optgroup>
+          <optgroup label="International systems">
+            <option value="us4">United States — 4.00 GPA system</option>
+            <option value="ca_gpa">Canada — GPA system (4.00 / 4.33 scale)</option>
+            <option value="uk_degree">United Kingdom — Percentage and degree classification</option>
+            <option value="eu_ects">European-style ECTS / percentage system</option>
+            <option value="au_gpa">Australia — GPA system (7-point / 4-point scale)</option>
+            <option value="in_cgpa">India — CGPA / percentage system (10-point scale)</option>
+          </optgroup>
+          <optgroup label="Custom grading system">
+            <option value="custom">Custom grading system (Define your own rules)</option>
+          </optgroup>
+        </select>
+        <div class="gpa-info-note">
+          <strong>Note:</strong> Grading rules may vary by institution. Choose the system closest to your academic program, or use <em>Custom grading system</em> if your institution follows different rules.
+        </div>
+        <details class="gpa-details" id="gpa-guide-accordion">
+          <summary>Which system should I choose? (Click to view guide)</summary>
+          <div class="gpa-details-content">
+            <ul>
+              <li><strong>Bangladesh — Diploma in Engineering:</strong> Designed for BTEB/Polytechnic students with an 8-semester curriculum. Supports calculating your current average up to any completed semester without requiring future semesters, with optional credit-weighting.</li>
+              <li><strong>Bangladesh — Honours / Bachelor's:</strong> Designed for 4-year degree students supporting year-wise, semester-wise, or course-credit CGPA calculations.</li>
+              <li><strong>Bangladesh — SSC / HSC:</strong> Standard 5.00 GPA scale for Education Boards with optional 4th subject bonus calculation.</li>
+              <li><strong>United States — 4.00 GPA:</strong> Standard A+ through F letter grades weighted by course credit hours.</li>
+              <li><strong>United Kingdom — Percentage &amp; Degree Classification:</strong> Module percentage marks (0–100%) and credit weights, calculating First, 2:1, 2:2, 3rd, or Fail.</li>
+              <li><strong>India — CGPA / Percentage:</strong> 10-point scale CGPA with standard conversion options (CBSE 9.5x, AICTE formula, or custom multiplier).</li>
+              <li><strong>Custom grading system:</strong> Define your own grade tiers, percentage boundaries, and grade points with automatic overlap validation.</li>
+            </ul>
+          </div>
+        </details>
+        <!-- Dynamic mode workspace rendered via JavaScript -->
+        <div id="gpa-dynamic-container" style="margin-top:14px;"></div>
+        <!-- Result Box -->
+        <div class="result-box" id="gpa-result" style="display:none;margin-top:16px;"></div>
+        <div id="gpa-list" style="display:none;"></div>
+        <p style="font-size:.75rem;color:var(--ink-soft);margin-top:12px;line-height:1.4;">
+          <em>This calculator is for educational estimation only. Official GPA, CGPA, percentage, and degree classification depend on your institution's rules. Calculations run entirely inside your browser — no personal academic data is collected or uploaded.</em>
+        </p>
+      </div>
+
+      <div class="card" id="citation-generator">
+        <h2>Citation Generator</h2>
+        <p class="desc">Generate accurately formatted academic bibliography citations in APA (7th ed.), MLA (9th ed.), and Chicago styles directly in your browser. Enter source details, choose your citation format, and copy your reference.</p>
+        <p style="margin:-10px 0 16px 0;"><a href="faq.html#citation-generator-faq" class="tool-faq-link">Read the full explanation in FAQ &rarr;</a></p>
+        <div class="row2">
+          <div><label for="c-author">Author (Last, First)</label><input type="text" id="c-author" placeholder="Doe, Jane"></div>
+          <div><label for="c-year">Year</label><input type="text" id="c-year" placeholder="2024"></div>
+        </div>
+        <label for="c-title">Title</label>
+        <input type="text" id="c-title" placeholder="Title of the work">
+        <div class="row2">
+          <div><label for="c-pub">Publisher / Source</label><input type="text" id="c-pub" placeholder="Publisher or website"></div>
+          <div><label for="c-style">Style</label>
+            <select id="c-style">
+              <option value="apa">APA</option>
+              <option value="mla">MLA</option>
+              <option value="chicago">Chicago</option>
+            </select>
+          </div>
+        </div>
+        <button type="button" class="btn primary" onclick="genCitation()" style="margin-top:14px;">Generate</button>
+        <div class="citation-out" id="citation-out" style="display:none;"></div>
+      </div>
+    </section>
+
+    <!-- 6. BLOG COMPOSER (panel id="blogwriter") -->
+    <section class="panel" id="blogwriter">
+      <div class="two-col">
+        <div>
+          <div class="card" id="blog-composer">
+            <h2>Post Details</h2>
+            <p class="desc">Compose Markdown articles with live layout preview and generate static HTML posts and posts.json entries for the Deskwork blog. Fill in post details, write your draft, and download to publish.</p>
+            <p style="margin:-10px 0 16px 0;"><a href="faq.html#blog-composer-faq" class="tool-faq-link">Read the full explanation in FAQ &rarr;</a></p>
+            <label for="bw-title">Title</label>
+            <input type="text" id="bw-title" placeholder="How to Write a Rirekisho for a Japan Visa Application" oninput="renderBlogPreview()">
+            <label for="bw-excerpt">Subtitle / Excerpt <span style="font-weight:400;color:var(--ink-soft);">(shown on the blog listing page)</span></label>
+            <textarea id="bw-excerpt" placeholder="A short one or two sentence summary that makes someone want to click." oninput="renderBlogPreview()"></textarea>
+            <div class="row2">
+              <div><label for="bw-author">Author</label><input type="text" id="bw-author" placeholder="Your name" oninput="renderBlogPreview()"></div>
+              <div><label for="bw-category">Category</label><input type="text" id="bw-category" placeholder="Guides, Career, Students..." oninput="renderBlogPreview()"></div>
+            </div>
+            <label for="bw-cover-input">Cover image <span style="font-weight:400;color:var(--ink-soft);">(optional)</span></label>
+            <input type="file" id="bw-cover-input" accept="image/*">
+            <label for="bw-meta-desc">Meta description <span style="font-weight:400;color:var(--ink-soft);">(for search engines, ~150 characters)</span></label>
+            <textarea id="bw-meta-desc" placeholder="A concise summary for Google search results."></textarea>
+          </div>
+
+          <div class="card">
+            <h2>Write</h2>
+            <p class="desc">Select text and use the toolbar to format it. Click the image button to insert a photo anywhere in the post.</p>
+            <div id="bw-toolbar">
+              <button type="button" onclick="bwCmd('bold')"><b>B</b></button>
+              <button type="button" onclick="bwCmd('italic')"><i>I</i></button>
+              <button type="button" onclick="bwFormatBlock('h2')">H2</button>
+              <button type="button" onclick="bwFormatBlock('h3')">H3</button>
+              <button type="button" onclick="bwFormatBlock('p')">¶</button>
+              <button type="button" onclick="bwFormatBlock('blockquote')">“ ”</button>
+              <button type="button" onclick="bwCmd('insertUnorderedList')">• List</button>
+              <button type="button" onclick="bwCmd('insertOrderedList')">1. List</button>
+              <button type="button" onclick="document.getElementById('bw-img-input').click()">🖼 Image</button>
+              <input type="file" id="bw-img-input" accept="image/*" style="display:none;">
+            </div>
+            <div id="bw-editor" contenteditable="true" oninput="renderBlogPreview()">
+              <p>Start writing here...</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="sticky">
+          <div class="card" style="padding:16px;">
+            <h2 style="font-size:1rem;">Preview</h2>
+            <div id="bw-preview" class="blog-article-preview"></div>
+            <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap;">
+              <button type="button" class="btn primary" onclick="downloadBlogPost()">Download post (.html)</button>
+              <button type="button" class="btn ghost" onclick="copyBlogListingSnippet()">Copy listing entry</button>
+            </div>
+            <p style="font-size:.78rem;color:var(--ink-soft);margin-top:10px;">
+              <strong>To publish:</strong> 1) Download the post file, push it to a new <code>/blog/&lt;filename&gt;.html</code> file in Termux. 2) Copy the listing entry, paste it into the array in <code>/blog/posts.json</code>, then push that too.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Inert Public Ad Placement Hook: Homepage In-Feed Banner (Phase 4) -->
+    <div id="ad-slot-homepage" class="deskwork-ad-container ad-slot-homepage" style="display:none;" aria-hidden="true"></div>
+
+    <!-- Site closing information & FAQ link -->
+    <div class="tool-intro site-closing">
+      <h2>Your Files Stay in Your Browser</h2>
+      <p>Every tool on this site — the resume builder, the file converter, the document scanner — runs its processing directly in your browser using JavaScript. There's no upload step, because there's no server on the other end to upload to: this is a static site with nowhere for your files to go. Selecting a file, typing your details, and downloading the result all happen locally on your device. The one honest caveat: the page itself loads fonts and a few external code libraries (for PDF/Word conversion) from public CDNs when you open certain tools — that's a normal part of how any website loads its assets, and it's separate from your actual content, which never leaves your device.</p>
+      <h2 style="margin-top:28px;">Frequently Asked Questions</h2>
+      <p>Need in-depth instructions, template advice, GPA calculation formulas, or help troubleshooting exports? Visit the comprehensive Deskwork FAQ and user guides.</p>
+      <div style="margin-top:14px;">
+        <a href="faq.html" class="tool-faq-link" style="font-size:0.95rem;">Visit the Complete FAQ &amp; User Guides &rarr;</a>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <!-- Inert Public Ad Placement Hook: Footer Banner (Phase 4) -->
+    <div id="ad-slot-footer" class="deskwork-ad-container ad-slot-footer" style="display:none;" aria-hidden="true"></div>
+    <div class="footer-links">
+      <a href="index.html">All Tools</a>
+      <span class="sep">•</span>
+      <a href="faq.html">FAQ</a>
+      <span class="sep">•</span>
+      <a href="blog/index.html">Blog</a>
+      <span class="sep">•</span>
+      <a href="about.html">About</a>
+      <span class="sep">•</span>
+      <a href="privacy.html">Privacy Policy</a>
+      <span class="sep">•</span>
+      <a href="terms.html">Terms of Use</a>
+      <span class="sep">•</span>
+      <a href="contact.html">Contact Us</a>
+    </div>
+    <p class="footer-note">Deskwork Tools — Free browser-based utilities. All processing is performed locally on your device for absolute confidentiality.</p>
+  </div>
+</footer>
+
+<!-- Document Preview Modal -->
+<div id="doc-preview-modal" class="doc-preview-modal" style="display:none;" role="dialog" aria-modal="true" aria-labelledby="doc-preview-title" tabindex="-1">
+  <div class="doc-preview-backdrop" onclick="closeDocumentPreview()"></div>
+  <div class="doc-preview-container">
+    <div class="doc-preview-header">
+      <div class="doc-preview-header-left">
+        <h2 id="doc-preview-title" class="doc-preview-title">Document Preview</h2>
+        <span id="doc-preview-subtitle" class="doc-preview-subtitle">Print-Ready Format</span>
+      </div>
+      <div class="doc-preview-actions">
+        <button type="button" class="btn primary doc-btn-save" onclick="executeDownloadPdf()" id="doc-modal-btn-download" title="Generate and download PDF file">
+          <span>⬇ Save / Download as PDF</span>
+        </button>
+        <button type="button" class="btn ghost doc-btn-print" onclick="executePrintDoc()" id="doc-modal-btn-print" title="Open printer and PDF options dialog">
+          <span>🖨 Print</span>
+        </button>
+        <button type="button" class="btn ghost doc-btn-close" onclick="closeDocumentPreview()" aria-label="Close Preview" title="Close Preview">
+          <span>✕ Close Preview</span>
+        </button>
+      </div>
+    </div>
+    <div class="doc-preview-bar">
+      <span class="doc-preview-tip">Tip: Inspect formatting and layout below before downloading or printing.</span>
+      <div style="display:flex;align-items:center;gap:8px;margin-left:auto;">
+        <button type="button" class="btn ghost small" id="doc-preview-zoom-btn" onclick="toggleDocPreviewZoom()" style="padding:3px 10px;font-size:0.75rem;min-height:28px;border:1px solid #cbd5e1;background:#fff;border-radius:4px;cursor:pointer;">🔍 Fit to Screen</button>
+        <button type="button" class="doc-preview-back-link" onclick="closeDocumentPreview()">&larr; Back to Editor</button>
+      </div>
+    </div>
+    <div class="doc-preview-viewport" id="doc-preview-viewport">
+      <div class="doc-preview-paper-stage">
+        <div class="doc-preview-paper" id="doc-preview-paper">
+          <div id="doc-preview-content"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Scanned Page Full Preview Modal -->
+<div id="scan-page-modal" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.85);z-index:9999;align-items:center;justify-content:center;padding:16px;box-sizing:border-box;" onclick="if(event.target===this)closeScanPreviewModal()">
+  <div style="background:#fff;border-radius:8px;max-width:920px;max-height:92vh;width:100%;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,0.5);">
+    <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid #e5e5e5;background:#fafafa;">
+      <h3 id="scan-modal-title" style="margin:0;font-size:1rem;font-weight:600;">Scanned Page Preview</h3>
+      <div style="display:flex;gap:8px;align-items:center;">
+        <button type="button" class="btn ghost small" onclick="rotateCurrentPreviewPage(-90)" title="Rotate Left 90°">↶ Rotate Left</button>
+        <button type="button" class="btn ghost small" onclick="rotateCurrentPreviewPage(90)" title="Rotate Right 90°">↷ Rotate Right</button>
+        <button type="button" class="btn ghost small" onclick="closeScanPreviewModal()" style="font-size:16px;line-height:1;padding:4px 10px;">✕</button>
+      </div>
+    </div>
+    <div style="flex:1;overflow:auto;padding:16px;display:flex;align-items:center;justify-content:center;background:#262626;">
+      <img id="scan-modal-img" src="" alt="Page Preview" style="max-width:100%;max-height:75vh;object-fit:contain;box-shadow:0 4px 16px rgba(0,0,0,0.4);border-radius:2px;background:#fff;">
+    </div>
+  </div>
+</div>
+
+<script src="/src/deskwork.js"></script>
+<script src="/src/telemetry.js" defer></script>
+<script src="/src/ads-loader.js" defer></script>
+</body>
+</html>

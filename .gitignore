@@ -1,0 +1,20 @@
+node_modules/
+build/
+dist/
+coverage/
+.DS_Store
+*.log
+.env*
+!.env.example
+
+# Local private runtime data & admin state (never commit to public repository)
+data/activity-log.json
+data/analytics-data.json
+data/cms-posts.json
+data/ads-config.json
+data/ads-global.json
+data/ads-providers.json
+
+# Temporary / test archives
+*.zip
+*.tar.gz

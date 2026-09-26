@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <style>
+      .navy-fill { fill: #0B132A; }
+      .blue-fill { fill: #0066FF; }
+      .white-fill { fill: #FFFFFF; }
+    </style>
+  </defs>
+
+  <g id="desk-worker-icon" transform="translate(-18, 12) scale(0.97)">
+    <!-- Desk Left Leg & Foot -->
+    <rect x="58" y="240" width="22" height="224" rx="4" class="navy-fill" />
+    <rect x="44" y="464" width="50" height="14" rx="4" class="navy-fill" />
+
+    <!-- 3-Drawer Cabinet -->
+    <rect x="316" y="250" width="190" height="62" rx="8" class="navy-fill" />
+    <rect x="385" y="277" width="52" height="8" rx="4" class="white-fill" />
+
+    <rect x="316" y="322" width="190" height="62" rx="8" class="navy-fill" />
+    <rect x="385" y="349" width="52" height="8" rx="4" class="white-fill" />
+
+    <rect x="316" y="394" width="190" height="62" rx="8" class="navy-fill" />
+    <rect x="385" y="421" width="52" height="8" rx="4" class="white-fill" />
+
+    <rect x="330" y="464" width="162" height="14" rx="4" class="navy-fill" />
+
+    <!-- Desktop Surface -->
+    <rect x="42" y="222" width="474" height="18" rx="6" class="navy-fill" />
+
+    <!-- Monitor & Stand -->
+    <rect x="380" y="184" width="20" height="38" rx="3" class="navy-fill" />
+    <path d="M 338 222 L 356 210 L 424 210 L 442 222 Z" class="navy-fill" />
+
+    <rect x="286" y="48" width="216" height="136" rx="12" class="navy-fill" />
+    <rect x="300" y="62" width="188" height="108" rx="6" class="white-fill" />
+    
+    <g transform="translate(390, 116) skewX(-11)">
+      <!-- Letter 'D' in Navy -->
+      <path d="
+        M -50 -32
+        L -20 -32
+        C -2 -32, 8 -18, 8 0
+        C 8 18, -2 32, -20 32
+        L -50 32
+        Z
+        M -36 -19
+        L -20 -19
+        C -8 -19, -5 -9, -5 0
+        C -5 9, -8 19, -20 19
+        L -36 19
+        Z
+      " fill="#0B132A" fill-rule="evenodd" />
+
+      <!-- Letter 'T' in Electric Blue -->
+      <path d="
+        M -2 -32
+        L 48 -32
+        L 48 -19
+        L 29.5 -19
+        L 29.5 32
+        L 16.5 32
+        L 16.5 -19
+        L -2 -19
+        Z
+      " fill="#0066FF" />
+    </g>
+  
+
+    <!-- Worker & Chair -->
+    <!-- Head -->
+    <path d="
+      M 174 74
+      C 174 52, 188 36, 206 36
+      C 224 36, 240 50, 242 70
+      C 243 82, 238 94, 230 102
+      C 222 110, 212 114, 200 114
+      C 184 114, 174 96, 174 74 Z
+    " class="navy-fill" />
+
+    <!-- Neck -->
+    <path d="M 194 108 L 216 108 L 220 132 L 192 132 Z" class="navy-fill" />
+
+    <!-- Torso & Arms -->
+    <path d="
+      M 192 132
+      C 166 136, 130 156, 116 182
+      C 106 200, 108 222, 122 222
+      L 256 222
+      C 272 222, 282 212, 280 196
+      C 276 174, 256 154, 226 138
+      C 216 134, 204 132, 192 132 Z
+    " class="navy-fill" />
+    <path d="M 138 206 C 136 192, 142 184, 152 182 C 154 196, 150 204, 138 206 Z" class="white-fill" />
+
+    <!-- Chair Backrest -->
+    <path d="
+      M 136 168
+      C 136 154, 148 146, 162 146
+      L 240 146
+      C 254 146, 266 154, 266 168
+      L 260 284
+      C 260 296, 250 306, 236 306
+      L 166 306
+      C 152 306, 142 296, 142 284
+      Z
+    " class="navy-fill" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" />
+    <rect x="160" y="274" width="82" height="7" rx="3.5" class="white-fill" />
+
+    <!-- Seat Cushion -->
+    <rect x="116" y="318" width="168" height="24" rx="8" class="navy-fill" />
+
+    <!-- Stem -->
+    <rect x="190" y="342" width="20" height="74" rx="4" class="navy-fill" />
+
+    <!-- Base -->
+    <path d="
+      M 190 416
+      L 124 454
+      A 4 4 0 0 0 126 464
+      L 140 464
+      L 200 428
+      L 260 464
+      L 274 464
+      A 4 4 0 0 0 276 454
+      L 210 416
+      Z
+    " class="navy-fill" />
+    <circle cx="124" cy="466" r="7" class="navy-fill" />
+    <circle cx="200" cy="466" r="7" class="navy-fill" />
+    <circle cx="276" cy="466" r="7" class="navy-fill" />
+
+    <!-- Legs -->
+    <rect x="158" y="342" width="24" height="72" rx="6" class="navy-fill" />
+    <rect x="218" y="342" width="24" height="72" rx="6" class="navy-fill" />
+  </g>
+</svg>

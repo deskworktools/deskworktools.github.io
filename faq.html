@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frequently Asked Questions & Tool Guides - Deskwork Tools</title>
+  <meta name="description" content="Comprehensive instructions, tips, and frequently asked questions for all Deskwork browser tools: Resume Builder, Rirekisho, Email Writer, Image & PDF Tools, Scanner, GPA Calculator, and Citation Generator.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://deskworktools.github.io/faq.html">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #EDF1F5;
+      --paper-raised: #FFFFFF;
+      --ink: #1B2430;
+      --ink-soft: #4B5563;
+      --stamp: #C1443C;
+      --stamp-dark: #9E362F;
+      --line: #D9E1E8;
+      --radius: 10px;
+      --radius-sm: 6px;
+      --shadow-md: 0 6px 20px rgba(27,36,48,.08), 0 1px 3px rgba(27,36,48,.06);
+    }
+    html {
+      box-sizing: border-box;
+      overflow-x: hidden;
+      width: 100%;
+      max-width: 100%;
+      -webkit-text-size-adjust: 100%;
+    }
+    *, *::before, *::after { box-sizing: inherit; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'IBM Plex Sans', sans-serif;
+      line-height: 1.65;
+      overflow-x: hidden;
+      width: 100%;
+      max-width: 100%;
+    }
+    h1, h2, h3, p, summary { overflow-wrap: break-word; word-break: break-word; }
+    img { max-width: 100%; height: auto; }
+    .wrap { max-width: 860px; margin: 0 auto; padding: 0 20px; width: 100%; box-sizing: border-box; }
+    header.site { padding: 36px 0 20px 0; }
+    .top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .brand { display: inline-flex; align-items: center; text-decoration: none; color: inherit; }
+    .site-logo { height: 38px; width: auto; max-width: 100%; display: block; object-fit: contain; }
+    .brand h1 { font-family: 'Fraunces', serif; font-size: 1.75rem; font-weight: 600; margin: 0; }
+    .mark { width: 14px; height: 14px; background: var(--stamp); transform: rotate(45deg); flex-shrink: 0; }
+    .site-nav { display: flex; gap: 14px; align-items: center; }
+    .site-nav a {
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+    }
+    .site-nav a:hover { background: rgba(27,36,48,0.06); color: var(--stamp-dark); }
+    .site-nav a.active { background: var(--ink); color: #fff; }
+    main { padding: 10px 0 60px 0; }
+    .card {
+      background: var(--paper-raised);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-md);
+      padding: 36px 32px;
+      margin-bottom: 28px;
+    }
+    @media (max-width: 600px) {
+      .card { padding: 24px 18px; }
+    }
+    h1 {
+      font-family: 'Fraunces', serif;
+      font-size: 2.2rem;
+      margin: 0 0 12px 0;
+      line-height: 1.2;
+    }
+    h2 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.5rem;
+      margin: 0 0 14px 0;
+      color: var(--ink);
+      line-height: 1.25;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--line);
+    }
+    h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin: 22px 0 8px 0;
+      line-height: 1.35;
+    }
+    p { margin: 0 0 14px 0; font-size: 0.96rem; color: var(--ink); }
+    p.lead { font-size: 1.05rem; color: var(--ink-soft); margin-bottom: 20px; }
+    ul, ol { margin: 0 0 16px 20px; padding: 0; }
+    li { margin-bottom: 8px; font-size: 0.94rem; }
+    code {
+      background: var(--paper);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.86rem;
+      font-family: monospace;
+    }
+    .toc-card {
+      background: #FAF8F5;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      margin-bottom: 30px;
+    }
+    .toc-title {
+      font-family: 'Fraunces', serif;
+      font-size: 1.25rem;
+      margin: 0 0 14px 0;
+      color: var(--ink);
+    }
+    .toc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .toc-grid li { margin: 0; }
+    .toc-grid a {
+      display: block;
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 6px 10px;
+      border-radius: var(--radius-sm);
+      background: #FFFFFF;
+      border: 1px solid var(--line);
+      transition: all 0.15s ease;
+    }
+    .toc-grid a:hover {
+      border-color: var(--stamp);
+      color: var(--stamp-dark);
+      transform: translateX(2px);
+    }
+    .open-tool-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--stamp);
+      color: #FFFFFF !important;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.86rem;
+      padding: 8px 15px;
+      border-radius: var(--radius-sm);
+      margin: 8px 0 18px 0;
+      transition: background 0.15s ease;
+    }
+    .open-tool-btn:hover { background: var(--stamp-dark); }
+    .note-box {
+      background: #FAF8F2;
+      border-left: 3px solid var(--stamp);
+      padding: 12px 16px;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      margin: 16px 0;
+      font-size: 0.9rem;
+      color: var(--ink);
+    }
+    .tip-box {
+      background: #EFF6FF;
+      border-left: 3px solid #3B82F6;
+      padding: 12px 16px;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      margin: 16px 0;
+      font-size: 0.9rem;
+      color: #1E3A8A;
+    }
+    .back-to-top {
+      display: inline-block;
+      font-size: 0.82rem;
+      color: var(--ink-soft);
+      text-decoration: none;
+      margin-top: 18px;
+    }
+    .back-to-top:hover { color: var(--stamp-dark); text-decoration: underline; }
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 36px 0 48px 0;
+      margin-top: 40px;
+    }
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 12px;
+      font-size: 0.88rem;
+    }
+    .footer-links a { color: var(--ink-soft); text-decoration: none; }
+    .footer-links a:hover { color: var(--stamp-dark); text-decoration: underline; }
+    .sep { color: var(--line); }
+    .footer-note { font-size: 0.82rem; color: var(--ink-soft); margin: 0; }
+    @media (max-width: 600px) {
+      .site-logo { height: 32px; }
+      .wrap { padding: 0 14px; }
+      .top-nav { flex-direction: column; align-items: flex-start; gap: 8px; }
+      .site-nav { width: 100%; display: flex; flex-wrap: wrap; gap: 6px; }
+      .site-nav a { padding: 5px 9px; font-size: 0.85rem; }
+      .card { padding: 18px 14px; }
+      .toc-grid { grid-template-columns: 1fr; }
+      .footer-links { justify-content: flex-start; }
+      .footer-note { text-align: left; }
+    }
+  </style>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Are Deskwork Tools completely free to use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Every tool on Deskwork is 100% free with no account creation, no subscriptions, and no watermarks placed on your exported resumes, documents, or images."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are my files, resumes, or personal documents uploaded to a server?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. All core processing including resume generation, image compression, document scanning, GPA calculation, and format conversion executes locally inside your web browser using client-side JavaScript."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does the Deskwork GPA Calculator calculate academic results?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The calculator implements official credit-weighted formulas for specific educational systems including Bangladesh Diploma in Engineering (8 semesters), Bangladesh Honours (4-year), SSC/HSC (5.0 scale with 4th subject bonus), US 4.0 scale, UK degree classifications, India 10-point CGPA, and custom grading tiers."
+          }
+        }
+      ]
+    }
+  </script>
+</head>
+<body id="top">
+<header class="site">
+  <div class="wrap">
+    <div class="top-nav">
+      <a href="index.html" class="brand" aria-label="Deskwork Tools">
+        <img src="/images/deskwork-tools-brand-logo.png?v=20260918" alt="Deskwork Tools" class="site-logo" width="138" height="44">
+      </a>
+      <nav class="site-nav" aria-label="Main Navigation">
+        <a href="index.html">Tools</a>
+        <a href="faq.html" class="active">FAQ</a>
+        <a href="blog/index.html">Blog</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+    <div class="card" style="margin-bottom: 20px;">
+      <h1>Frequently Asked Questions & User Guides</h1>
+      <p class="lead">Detailed instructions, formulas, limitations, and answers to common questions for every tool on Deskwork Tools.</p>
+      <div class="toc-card">
+        <div class="toc-title">Table of Contents</div>
+        <ul class="toc-grid">
+          <li><a href="#general-faq">1. General Questions</a></li>
+          <li><a href="#resume-builder-faq">2. Resume Builder</a></li>
+          <li><a href="#rirekisho-faq">3. Japan Rirekisho Tool</a></li>
+          <li><a href="#letter-writer-faq">4. Professional Email & Letter</a></li>
+          <li><a href="#image-tools-faq">5. Image Tools</a></li>
+          <li><a href="#pdf-tools-faq">6. PDF & File Converter</a></li>
+          <li><a href="#scanner-tool-faq">7. Document Scanner</a></li>
+          <li><a href="#gpa-calculator-faq">8. GPA & Academic Calculator</a></li>
+          <li><a href="#citation-generator-faq">9. Citation Generator</a></li>
+          <li><a href="#blog-composer-faq">10. Blog Composer</a></li>
+          <li><a href="#privacy-faq">11. Privacy & Security</a></li>
+          <li><a href="#troubleshooting-faq">12. Troubleshooting</a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- 1. GENERAL QUESTIONS -->
+    <section class="card" id="general-faq">
+      <h2>1. General Website Questions</h2>
+      <h3>What is Deskwork Tools?</h3>
+      <p>Deskwork Tools is a suite of free, browser-based utilities designed for everyday productivity, job seekers, students, and office workers. Tools include a Resume Builder with 10 templates, an official Japanese Rirekisho generator, an Email and Letter writer, Image resizing and compression tools, PDF tools, a Document Scanner, a Multi-System GPA Calculator, and a Citation Generator.</p>
+      <h3>Are Deskwork's tools actually free?</h3>
+      <p>Yes. All tools are completely free to use. There are no paid tiers, no premium paywalls, no required registrations, and no watermarks added to your downloaded resumes, letters, or images.</p>
+      <h3>Do I need to create an account or install software?</h3>
+      <p>No. You do not need to register, log in, or install any browser extensions or apps. Everything runs directly in your web browser on desktop, tablet, or smartphone.</p>
+      <h3>Can I use Deskwork on a smartphone?</h3>
+      <p>Yes. The entire platform is built mobile-first with responsive layouts. The Document Scanner tool can access your phone's camera directly to capture documents on the go.</p>
+      <h3>Can I use Deskwork offline?</h3>
+      <p>Once the web page and its styling are loaded in your browser cache, the calculation and processing logic works client-side without continuous server communication.</p>
+      <a href="#top" class="back-to-top">&uarr; Back to top</a>
+    </section>
+    <!-- 2. RESUME BUILDER FAQ -->
+    <section class="card" id="resume-builder-faq">
+      <h2>2. Resume Builder FAQ</h2>
+      <p>The Resume Builder helps job applicants and professionals assemble structured, recruiter-ready resumes by entering contact, education, work experience, skills, and regional credentials into an interactive form with real-time preview.</p>
+      <a href="index.html#resume-builder" class="open-tool-btn">Open Resume Builder &rarr;</a>
+      <h3>How do I use the Resume Builder?</h3>
+      <ol>
+        <li>Enter your contact details (name, email, phone, location, and optional summary) in the <strong>Your details</strong> section.</li>
+        <li>Add your employment history, educational qualifications, skills, and optional certifications using the dynamic repeatable fields.</li>
+        <li>Review your formatting in real-time in the live preview panel.</li>
+        <li>Switch between any of the 10 layout templates to find the design best suited to your target market.</li>
+        <li>Click <strong>Download PDF</strong> to save your resume, or choose <strong>Print</strong> for your browser's printer dialog.</li>
+      </ol>
+      <h3>Which template should I use?</h3>
+      <p>The best template depends strictly on where and how you are applying:</p>
+      <ul>
+        <li><strong>Compact (US/ATS):</strong> Clean, single-column design engineered specifically for automated Applicant Tracking Systems (ATS) used by North American and multinational corporations. It avoids tables, multi-column blocks, or embedded graphics that confuse resume parsers.</li>
+        <li><strong>Bangladesh Standard &amp; Classic:</strong> Tailored to the expectations of Bangladeshi employers and government agencies. Includes dedicated sections for father's/mother's name, permanent/present addresses, national ID (NID), religious affiliation, and per-exam GPA.</li>
+        <li><strong>Gulf / Middle East:</strong> Tailored for recruitment in UAE, Saudi Arabia, Qatar, and other GCC nations. Includes fields recruiters routinely request, such as passport number, visa status, driving license validity, and marital status.</li>
+        <li><strong>International, Sidebar &amp; Europass:</strong> Ideal for European, Asian, or creative job markets where a photo slot, skills rating meter, and clear sidebar layout are customary.</li>
+        <li><strong>Academic:</strong> Structured for university admissions, research assistants, and faculty positions. Emphasizes publications, conference presentations, research interests, and honors over corporate employment.</li>
+        <li><strong>Modern &amp; Minimal:</strong> Balanced typography and spacious margins suitable for tech, design, marketing, and general professional roles.</li>
+      </ul>
+      <h3>What is the "Auto-draft summary" feature?</h3>
+      <p>When you click the auto-draft button, a client-side helper reads the details you have already entered (job titles, degrees, and skills) and crafts a concise, professional summary paragraph that you can edit and refine.</p>
+      <h3>How do I download or print my resume?</h3>
+      <p>Clicking <strong>Download PDF</strong> generates a crisp PDF directly to your device. You can also click <strong>Print</strong> for your browser's native print preview with print-optimized CSS that removes UI elements.</p>
+      <a href="#top" class="back-to-top">&uarr; Back to top</a>
+    </section>
+    <!-- 3. JAPAN RIREKISHO FAQ -->
+    <section class="card" id="rirekisho-faq">
+      <h2>3. Japan Rirekisho Tool FAQ</h2>
+      <p>The Rirekisho Builder generates official, bilingual Japanese-standard resumes (JIS standard format) essential for Japanese employment, working visas, Specified Skilled Worker (SSW), and Technical Intern Training (TITP) programs.</p>
+      <a href="index.html#rirekisho" class="open-tool-btn">Open Japan Rirekisho Builder &rarr;</a>
+      <h3>What is a Rirekisho and why is it unique?</h3>
+      <p>In Japan, employment and immigration authorities expect resumes in a strictly standardized structural format called a <em>rirekisho</em>. Unlike Western CVs that prioritize self-promotion, a Japanese rirekisho requires chronological accuracy, specific personal disclosures, and standardized bilingual fields.</p>
+      <h3>What sections are included in this tool?</h3>
+      <ul>
+        <li><strong>Basic Information:</strong> Name in English and Katakana Furigana, Date of Birth, Age, Marital Status, and Registered Address.</li>
+        <li><strong>Physical &amp; Health:</strong> Height, weight, blood type, eyesight (left/right), and health status standard inquiries for visa compliance and physical or hospitality roles.</li>
+        <li><strong>Academic &amp; Work Background:</strong> Strict chronological order of schooling and past employers.</li>
+        <li><strong>Language Certifications:</strong> Repeatable table for Japanese Language Proficiency Test (JLPT N1-N5), JFT-Basic, NAT-TEST, and English proficiency certifications.</li>
+        <li><strong>Family Structure:</strong> Emergency contacts, dependents, and spouse details required by immigration sponsors.</li>
+      </ul>
+      <h3>How do I print or export my Rirekisho?</h3>
+      <p>Click <strong>Download as PDF</strong>. The layout matches official Japanese paper specifications. You can also use the print dialog directly.</p>
+      <a href="#top" class="back-to-top">&uarr; Back to top</a>
+    </section>
+    <!-- 4. EMAIL & LETTER WRITER FAQ -->
+    <section class="card" id="letter-writer-faq">
+      <h2>4. Professional Email &amp; Letter Tools FAQ</h2>
+      <p>The Professional Email &amp; Letter Writer drafts structured, courteous, and situational communications for job applications, business inquiries, customer complaints, academic communication, and account support.</p>
+      <a href="index.html#letter-writer" class="open-tool-btn">Open Email &amp; Letter Writer &rarr;</a>
+      <h3>How does the letter writer work?</h3>
+      <p>Select your communication purpose from the dropdown (e.g. Job Application, General Inquiry, Complaint / Feedback, School / Teacher Email, Account Recovery, or Thank You / Follow-up). The form automatically adjusts relevant recipient fields and inserts an appropriate tone-matched template.</p>
+      <h3>How do I use the generated text?</h3>
+      <p>Click <strong>Copy to clipboard</strong> to paste the text directly into Gmail, Outlook, Facebook, or web ticket forms. You can also click <strong>Download as PDF</strong> to produce a formal letterhead document.</p>
+      <a href="#top" class="back-to-top">&uarr; Back to top</a>
+    </section>
+    <!-- 5. IMAGE TOOLS FAQ -->
+    <section class="card" id="image-tools-faq">
+      <h2>5. Image Resizer, Compressor &amp; Converter FAQ</h2>
+      <p>The Image Processing Tool resizes pixel dimensions, compresses file sizes, and converts graphic files between JPG, PNG, and WebP directly within the browser using the HTML5 Canvas API.</p>
+      <a href="index.html#image-tools" class="open-tool-btn">Open Image Tools &rarr;</a>
+      <h3>What is the difference between resizing and compressing?</h3>
+      <ul>
+        <li><strong>Resizing:</strong> Changes the physical pixel dimensions (width &times; height) of an image. Use this when a portal requires exact dimensions (e.g. 300&times;300 px).</li>
+        <li><strong>Compressing:</strong> Maintains the pixel dimensions but reduces the underlying byte size by optimizing image data. Use this when an upload form rejects files larger than a specific limit (e.g. under 100 KB).</li>
+      </ul>
+      <h3>How does "By target file size" mode work?</h3>
+      <p>When you select <em>By target file size</em> and enter e.g. <code>50 KB</code>, the tool runs an intelligent binary search approximation across JPEG/WebP quality steps to produce a file that fits within your specified target limit without over-compressing.</p>
+      <a href="#top" class="back-to-top">&uarr; Back to top</a>
+    </section>
+    <!-- 6. PDF & FILE CONVERTER FAQ -->
+    <section class="card" id="pdf-tools-faq">
+      <h2>6. PDF &amp; File Converter FAQ</h2>
+      <p>The File Compressor &amp; Converter handles document format conversion between PDF and Microsoft Word (.docx/.rtf), as well as client-side PDF file size reduction.</p>
+      <a href="index.html#pdf-tools" class="open-tool-btn">Open PDF Tools &rarr;</a>
+      <h3>How does PDF compression work?</h3>
+      <p>The PDF compressor renders individual pages onto high-resolution canvas surfaces and recompresses them as optimized images into a new PDF wrapper. This drastically cuts file size for bloated scanned documents.</p>
+      <a href="#top" class="back-to-top">&uarr; Back to top</a>
+    </section>
+    <!-- 7. DOCUMENT SCANNER FAQ -->
+    <section class="card" id="scanner-tool-faq">
+      <h2>7. Document Scanner FAQ</h2>
+      <p>The Document Scanner turns mobile camera snapshots or uploaded pictures of papers, certificates, receipts, and handwritten notes into clean, perspective-corrected document scans.</p>
+      <a href="index.html#scanner-tool" class="open-tool-btn">Open Document Scanner &rarr;</a>
+      <h3>How does the 4-corner perspective correction work?</h3>
+      <p>The scanner lets you drag 4 corner handles to the four corners of the page. The tool then applies mathematical homography transformation to project the quadrilateral into a flat, straight rectangular page with optional B&amp;W or grayscale enhancement.</p>
+      <a href="#top" class="back-to-top">&uarr; Back to top</a>
+    </section>
+    <!-- 8. GPA CALCULATOR FAQ -->
+    <section class="card" id="gpa-calculator-faq">
+      <h2>8. GPA &amp; Academic Result Calculator FAQ</h2>
+      <p>The Academic Result Calculator provides dedicated calculation engines for diverse national and international grading frameworks.</p>
+      <a href="index.html#gpa-calculator" class="open-tool-btn">Open GPA Calculator &rarr;</a>
+      <h3>Which education systems are supported?</h3>
+      <ul>
+        <li><strong>Bangladesh - Diploma in Engineering (8 Semesters):</strong> Designed for BTEB/Polytechnic curriculums. Supports calculating current cumulative progress up to any completed semester (e.g. 6 of 8 semesters) without demanding dummy future semesters. Supports credit-weighted and arithmetic modes.</li>
+        <li><strong>Bangladesh - Honours / Bachelor's (4-Year):</strong> Supports year-wise, semester-wise, and course-credit cumulative calculations.</li>
+        <li><strong>Bangladesh - SSC / HSC (5.00 Scale):</strong> Official 5.00 scale for Secondary and Higher Secondary boards, complete with 4th optional subject bonus rule.</li>
+        <li><strong>Bangladesh - National University (NU):</strong> Calculates cumulative standing and maps results to official NU degree divisions (First Class for 3.00+, Second Class for 2.25-2.99, Third Class for 2.00-2.24).</li>
+        <li><strong>United States - 4.00 Scale:</strong> Standard letter grade scale with configurable course credits and unweighted options.</li>
+        <li><strong>United Kingdom - Degree Classification:</strong> Weighted module percentage marks calculating UK Honours classifications: First-Class Honours (70%+), Upper Second-Class 2:1 (60-69%), Lower Second-Class 2:2 (50-59%), Third-Class (40-49%), and Fail.</li>
+        <li><strong>India - 10-Point Scale:</strong> 10-point CGPA calculation with standard conversion options: CBSE standard (CGPA &times; 9.5 = percentage), AICTE / Mumbai University formula, or custom multipliers.</li>
+        <li><strong>Canada, Australia, &amp; Europe:</strong> Standard 4.00/4.33 scales, Australian 7-point scale with HD/D/C/P bands, and European ECTS credit weighting.</li>
+        <li><strong>Custom Grading System:</strong> Lets you configure custom grade names, min/max percentage brackets, and grade point mappings with real-time overlap validation.</li>
+      </ul>
+      <a href="#top" class="back-to-top">&uarr; Back to top</a>
+    </section>
+    <!-- 9. CITATION GENERATOR FAQ -->
+    <section class="card" id="citation-generator-faq">
+      <h2>9. Citation Generator FAQ</h2>
+      <p>The Citation Generator formats bibliographical references according to established academic style conventions for research papers, essays, and reports.</p>
+      <a href="index.html#citation-generator" class="open-tool-btn">Open Citation Generator &rarr;</a>
+      <h3>Which citation styles are supported?</h3>
+      <ul>
+        <li><strong>APA (7th ed.):</strong> <em>Author, A. (Year). Title of work. Publisher.</em></li>
+        <li><strong>MLA (9th ed.):</strong> <em>Author, First. "Title of Work." Publisher, Year.</em></li>
+        <li><strong>Chicago:</strong> <em>Author, First. Title of Work. Publisher, Year.</em></li>
+      </ul>
+      <a href="#top" class="back-to-top">&uarr; Back to top</a>
+    </section>
+    <!-- 10. BLOG COMPOSER FAQ -->
+    <section class="card" id="blog-composer-faq">
+      <h2>10. Blog Composer FAQ</h2>
+      <p>The Blog Composer provides a browser-based writing environment to compose, format, preview, and generate static Markdown posts and metadata for Deskwork's blog.</p>
+      <a href="index.html#blog-composer" class="open-tool-btn">Open Blog Composer &rarr;</a>
+      <a href="#top" class="back-to-top">&uarr; Back to top</a>
+    </section>
+    <!-- 11. PRIVACY FAQ -->
+    <section class="card" id="privacy-faq">
+      <h2>11. Privacy, Security &amp; Data Processing</h2>
+      <h3>Where is my data processed?</h3>
+      <p>Every tool on Deskwork executes 100% inside your local web browser. When you resize a photo, scan a certificate, format a resume, or calculate grades, the data stays strictly in your computer or phone's memory. No uploaded files or personal form data are ever transmitted to an external server.</p>
+      <a href="#top" class="back-to-top">&uarr; Back to top</a>
+    </section>
+    <!-- 12. TROUBLESHOOTING FAQ -->
+    <section class="card" id="troubleshooting-faq">
+      <h2>12. Troubleshooting &amp; Download Questions</h2>
+      <h3>Why didn't my PDF download start?</h3>
+      <p>Most modern mobile and desktop browsers block automatic downloads if popups are restricted or if permissions are pending. Ensure popups are allowed for this site. You can also click the Print button to open your device's native print-to-PDF function directly.</p>
+      <a href="#top" class="back-to-top">&uarr; Back to top</a>
+    </section>
+  </div>
+</main>
+<footer>
+  <div class="wrap">
+    <div class="footer-links">
+      <a href="index.html">All Tools</a>
+      <span class="sep">&bull;</span>
+      <a href="faq.html">FAQ</a>
+      <span class="sep">&bull;</span>
+      <a href="blog/index.html">Blog</a>
+      <span class="sep">&bull;</span>
+      <a href="about.html">About</a>
+      <span class="sep">&bull;</span>
+      <a href="privacy.html">Privacy Policy</a>
+      <span class="sep">&bull;</span>
+      <a href="terms.html">Terms of Use</a>
+      <span class="sep">&bull;</span>
+      <a href="contact.html">Contact Us</a>
+    </div>
+    <p class="footer-note">Deskwork Tools &bull; Free browser-based utilities. All processing is performed locally on your device for absolute confidentiality.</p>
+  </div>
+</footer>
+</body>
+</html>

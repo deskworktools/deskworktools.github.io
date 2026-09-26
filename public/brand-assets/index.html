@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deskwork Tools — Logo Redesign & Geometric Refinement</title>
+  <style>
+    :root {
+      --navy: #0B132A;
+      --blue: #0066FF;
+      --bg: #F8F9FC;
+      --card-bg: #FFFFFF;
+      --border: #E2E8F0;
+      --text: #1E293B;
+      --muted: #64748B;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      padding: 40px 20px;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    header {
+      margin-bottom: 40px;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 24px;
+    }
+    .badge {
+      display: inline-block;
+      background: #EBF3FF;
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
+    }
+    h1 {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+    p.lead {
+      font-size: 16px;
+      color: var(--muted);
+      max-width: 840px;
+    }
+    .section-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--navy);
+      margin: 40px 0 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    @media (max-width: 768px) {
+      .grid-2 { grid-template-columns: 1fr; }
+    }
+    .checkerboard {
+      background-color: #f0f0f5;
+      background-image: linear-gradient(45deg, #e5e5eb 25%, transparent 25%),
+                        linear-gradient(-45deg, #e5e5eb 25%, transparent 25%),
+                        linear-gradient(45deg, transparent 75%, #e5e5eb 75%),
+                        linear-gradient(-45deg, transparent 75%, #e5e5eb 75%);
+      background-size: 16px 16px;
+      background-position: 0 0, 0 8px, 8px -8px, -8px 0px;
+      border-radius: 8px;
+      padding: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 220px;
+    }
+    .logo-img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+    .spec-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+    }
+    .spec-table th, .spec-table td {
+      padding: 10px 14px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+      font-size: 14px;
+    }
+    .spec-table th {
+      color: var(--muted);
+      font-weight: 600;
+      width: 25%;
+    }
+    .color-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      font-family: monospace;
+    }
+    .swatch {
+      width: 20px;
+      height: 20px;
+      border-radius: 4px;
+      border: 1px solid rgba(0,0,0,0.1);
+    }
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--navy);
+      color: #fff;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 6px;
+      transition: background 0.2s;
+    }
+    .download-btn:hover {
+      background: var(--blue);
+    }
+    .asset-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .asset-row:last-child { border-bottom: none; }
+    .asset-name { font-weight: 700; color: var(--navy); }
+    .asset-desc { font-size: 13px; color: var(--muted); }
+    .feature-list {
+      margin-top: 14px;
+      padding-left: 20px;
+      font-size: 13px;
+    }
+    .feature-list li { margin-bottom: 6px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <span class="badge">COMPLETE VISUAL REDESIGN</span>
+      <h1>Deskwork Tools — Redesigned Master Logo</h1>
+      <p class="lead">
+        A completely reimagined icon geometry designed from the ground up for modern digital tech and productivity brands. Eliminates the awkward 6-leg visual clutter, replaces clumsy shapes with an ergonomic task chair and purposeful worker posture, and introduces a custom-engineered DT tech monogram.
+      </p>
+    </header>
+
+    <!-- Side-by-Side Direct Comparison -->
+    <h2 class="section-title">1. Side-by-Side Visual Comparison</h2>
+    <div class="grid-2">
+      <div class="card" style="border-color: #CBD5E1;">
+        <h3 style="margin-bottom: 12px; color: #64748B; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 700;">Previous Original Logo</h3>
+        <div class="checkerboard">
+          <img src="original-reference.png" alt="Previous Logo" class="logo-img" style="max-height: 140px;">
+        </div>
+        <ul class="feature-list" style="color: #64748B;">
+          <li>❌ <strong>Cluttered Vertical Sticks:</strong> 4 chair legs + 2 human legs + desk leg creating a confusing barcode</li>
+          <li>❌ <strong>Awkward Worker Anatomy:</strong> Lumpy asymmetric head, hunched neck, droopy lifeless arms</li>
+          <li>❌ <strong>Generic Dinner Chair:</strong> Blocky tombstone-shaped backrest on straight wooden-style legs</li>
+          <li>❌ <strong>Floating Drawers:</strong> 3 disconnected boxes with random pill slots on clumsy feet</li>
+          <li>❌ <strong>Generic Italic DT:</strong> Slanted system font slapped into a chunky CRT-style monitor</li>
+        </ul>
+      </div>
+
+      <div class="card" style="border-color: var(--blue); box-shadow: 0 4px 20px rgba(0,102,255,0.08);">
+        <h3 style="margin-bottom: 12px; color: var(--blue); font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 700;">New Redesigned Master Logo</h3>
+        <div class="checkerboard">
+          <img src="deskwork-tools-logo-refined.svg" alt="New Redesigned Logo" class="logo-img" style="max-height: 140px;">
+        </div>
+        <ul class="feature-list" style="color: var(--navy); font-weight: 500;">
+          <li>✅ <strong>Ergonomic Task Chair & Wheeled Base:</strong> Modern central pneumatic cylinder and arched 5-star wheeled base</li>
+          <li>✅ <strong>Purposeful Worker Posture:</strong> Focused anatomical cranial silhouette and active arms engaging the keyboard</li>
+          <li>✅ <strong>Sculpted Lumbar Backrest:</strong> Tapered ergonomic back with white knockout separation and lumbar mesh slot</li>
+          <li>✅ <strong>Flush Executive Pedestal:</strong> Integrated 3-drawer unit with uniform 10px reveals and sleek horizontal pulls</li>
+          <li>✅ <strong>Custom Engineered DT Monogram:</strong> Pure geometric D (Navy) and T (Electric Blue) with matched stroke weights</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Responsive Scale & Real-World Context -->
+    <h2 class="section-title">2. Responsive Context & Small-Scale Clarity</h2>
+    <div class="card">
+      <p style="font-size: 14px; color: var(--muted); margin-bottom: 20px;">
+        Tested across standard real-world environments to guarantee that the clean geometry retains crisp legibility without visual vibration:
+      </p>
+
+      <!-- Desktop Header -->
+      <div style="background: #ffffff; border: 1px solid var(--border); border-radius: 8px; padding: 16px 24px; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between;">
+        <span style="font-size: 13px; font-weight: 700; color: var(--muted);">Website Header (36px):</span>
+        <img src="deskwork-tools-logo-refined.svg" alt="Header 36px" style="height: 36px; width: auto;">
+        <span style="font-size: 12px; color: #10B981; font-weight: 700;">✓ Crisp Vector Silhouette</span>
+      </div>
+
+      <!-- Mobile Header -->
+      <div style="background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 16px 24px; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between;">
+        <span style="font-size: 13px; font-weight: 700; color: var(--muted);">Mobile Header (28px):</span>
+        <img src="deskwork-tools-logo-refined.svg" alt="Mobile 28px" style="height: 28px; width: auto;">
+        <span style="font-size: 12px; color: #10B981; font-weight: 700;">✓ Legible Wordmark</span>
+      </div>
+
+      <!-- Favicons -->
+      <div style="background: #ffffff; border: 1px solid var(--border); border-radius: 8px; padding: 16px 24px; display: flex; align-items: center; justify-content: space-between;">
+        <span style="font-size: 13px; font-weight: 700; color: var(--muted);">Favicon Marks (64px, 32px):</span>
+        <div style="display: flex; align-items: center; gap: 24px;">
+          <img src="deskwork-tools-favicon-64.png" alt="Favicon 64px" style="width: 48px; height: 48px;">
+          <img src="deskwork-tools-favicon-32.png" alt="Favicon 32px" style="width: 32px; height: 32px;">
+        </div>
+        <span style="font-size: 12px; color: #10B981; font-weight: 700;">✓ High-Contrast DT Screen</span>
+      </div>
+    </div>
+
+    <!-- Secondary Brand Assets -->
+    <h2 class="section-title">3. Secondary Brand Marks</h2>
+    <div class="grid-2">
+      <div class="card">
+        <h3 style="font-size: 16px; font-weight: 800; color: var(--navy); margin-bottom: 8px;">DT Monitor Symbol (Brand Mark)</h3>
+        <p style="font-size: 13px; color: var(--muted); margin-bottom: 16px;">App icons, browser tabs, social avatars, and compact badges.</p>
+        <div class="checkerboard">
+          <img src="deskwork-tools-mark-refined.svg" alt="DT Brand Mark" style="max-height: 140px;">
+        </div>
+      </div>
+
+      <div class="card">
+        <h3 style="font-size: 16px; font-weight: 800; color: var(--navy); margin-bottom: 8px;">Desk-Worker Icon (Standalone Symbol)</h3>
+        <p style="font-size: 13px; color: var(--muted); margin-bottom: 16px;">Square 512x512 standalone vector for merchandise, documentation, and splash screens.</p>
+        <div class="checkerboard">
+          <img src="deskwork-tools-icon-refined.svg" alt="Desk-Worker Icon" style="max-height: 140px;">
+        </div>
+      </div>
+    </div>
+
+    <!-- Brand Color & Specifications -->
+    <h2 class="section-title">4. Brand Color & Vector Specifications</h2>
+    <div class="card">
+      <table class="spec-table">
+        <tr>
+          <th>Dark Navy</th>
+          <td>
+            <div class="color-chip">
+              <span class="swatch" style="background: #0B132A;"></span>
+              #0B132A (RGB: 11, 19, 42) — Wordmark "Deskwork", Worker, Chair, Display Frame, DT "D"
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th>Bright Electric Blue</th>
+          <td>
+            <div class="color-chip">
+              <span class="swatch" style="background: #0066FF;"></span>
+              #0066FF (RGB: 0, 102, 255) — Wordmark "Tools", DT "T"
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th>Display Typography</th>
+          <td>Plus Jakarta Sans 800 (ExtraBold) — Outlined to pure SVG vector paths</td>
+        </tr>
+        <tr>
+          <th>DT Monogram</th>
+          <td>Custom geometric monogram with matched 14px stem thickness & 11° dynamic italic slant</td>
+        </tr>
+        <tr>
+          <th>Master Dimensions</th>
+          <td>1660 × 530 px (3.13:1 horizontal composition)</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Exported Assets Catalog -->
+    <h2 class="section-title">5. Exported Asset Catalog</h2>
+    <div class="card">
+      <div class="asset-row">
+        <div>
+          <div class="asset-name">deskwork-tools-logo-refined.svg</div>
+          <div class="asset-desc">Primary master vector logo (infinite scalability, transparent background)</div>
+        </div>
+        <a href="deskwork-tools-logo-refined.svg" download class="download-btn">Download SVG</a>
+      </div>
+
+      <div class="asset-row">
+        <div>
+          <div class="asset-name">deskwork-tools-logo-refined-2x.png</div>
+          <div class="asset-desc">Ultra high-resolution master PNG (3320 × 1060 px, transparent background)</div>
+        </div>
+        <a href="deskwork-tools-logo-refined-2x.png" download class="download-btn">Download PNG 2X</a>
+      </div>
+
+      <div class="asset-row">
+        <div>
+          <div class="asset-name">deskwork-tools-logo-refined-1x.png</div>
+          <div class="asset-desc">Standard master PNG (1660 × 530 px, transparent background)</div>
+        </div>
+        <a href="deskwork-tools-logo-refined-1x.png" download class="download-btn">Download PNG 1X</a>
+      </div>
+
+      <div class="asset-row">
+        <div>
+          <div class="asset-name">deskwork-tools-mark-refined.svg / .png</div>
+          <div class="asset-desc">Secondary DT Monitor Brand Mark (Square vector & 512px transparent PNG)</div>
+        </div>
+        <a href="deskwork-tools-mark-refined.svg" download class="download-btn">Download Mark</a>
+      </div>
+
+      <div class="asset-row">
+        <div>
+          <div class="asset-name">deskwork-tools-icon-refined.svg / .png</div>
+          <div class="asset-desc">Standalone Desk-Worker Icon (Square vector & 512px transparent PNG)</div>
+        </div>
+        <a href="deskwork-tools-icon-refined.svg" download class="download-btn">Download Icon</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

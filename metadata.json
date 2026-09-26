@@ -1,0 +1,6 @@
+{
+  "name": "Deskwork Tools",
+  "description": "Free online tools for resumes, documents, images, students, and everyday work.",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
