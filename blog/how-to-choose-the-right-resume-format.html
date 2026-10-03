@@ -15,16 +15,32 @@ main{padding:26px 0 60px}article{background:var(--paper-raised);border:1px solid
 h1{font-family:'Fraunces',serif;font-size:2.25rem;margin:0 0 12px;line-height:1.18}.bap-excerpt{color:var(--ink-soft);font-size:1.08rem;margin-bottom:14px}.bap-byline{font-size:.82rem;color:var(--ink-soft);margin-bottom:26px;padding-bottom:18px;border-bottom:1px solid var(--line)}
 .bap-content{font-size:1.02rem;line-height:1.8}.bap-content h2{font-family:'Fraunces',serif;font-size:1.55rem;margin:34px 0 10px}.bap-content h3{font-family:'Fraunces',serif;font-size:1.18rem;margin:24px 0 8px}.bap-content p{margin:0 0 17px}.bap-content ul,.bap-content ol{margin:0 0 18px;padding-left:24px}.bap-content li{margin-bottom:7px}.bap-content a{color:var(--stamp-dark);font-weight:500}.bap-content blockquote{border-left:3px solid var(--stamp);padding-left:16px;color:var(--ink-soft);margin:20px 0;font-style:italic}
 .tip{background:#F5F7F9;border-left:4px solid var(--stamp);padding:15px 17px;margin:22px 0;border-radius:5px;max-width:100%;box-sizing:border-box;}.tip strong{display:block;margin-bottom:3px}.cta{background:var(--ink);color:#fff;border-radius:9px;padding:24px;margin:28px 0;max-width:100%;box-sizing:border-box;}.cta h2{color:#fff;margin-top:0}.cta p{color:#E6E9ED}.cta a{display:inline-block;background:#fff;color:var(--ink);padding:9px 15px;border-radius:5px;text-decoration:none;font-weight:600;max-width:100%;white-space:normal;}.faq{border-top:1px solid var(--line);padding-top:4px}.faq h3{margin-top:22px}.ad-slot{display:none;background:#E4E9EE;border:1px dashed var(--line);text-align:center;color:var(--ink-soft);font-size:.78rem;padding:16px;border-radius:6px;margin:24px 0}footer{border-top:1.5px solid var(--line);padding:24px 0 40px;color:var(--ink-soft);font-size:.82rem;margin-top:20px;width:100%;max-width:100%;box-sizing:border-box;}footer a{color:var(--ink-soft);margin-right:16px}@media(max-width:600px){.wrap{padding:0 14px}.bap-body{padding:18px 14px}h1{font-size:1.75rem}.bap-content{font-size:.98rem}}
+
+.bap-layout{display:flex;flex-direction:column;gap:24px;width:100%;}
+.bap-article{flex:1;min-width:0;width:100%;}
+.bap-sidebar{display:none;}
+@media(min-width:1024px){
+  .wrap.bap-wrap{max-width:1000px;}
+  .bap-layout{flex-direction:row;align-items:flex-start;justify-content:center;}
+  .bap-article{max-width:760px;}
+  .bap-sidebar{display:block;width:190px;flex-shrink:0;}
+  .bap-sidebar-sticky{position:sticky;top:24px;display:flex;flex-direction:column;align-items:center;}
+}
+@media(max-width:1023px){
+  .bap-sidebar{display:none !important;visibility:hidden !important;height:0 !important;overflow:hidden !important;}
+}
+.ad-slot-native-wrap{margin:32px 0 20px;clear:both;}
+.ad-slot-sidebar{width:160px;min-height:300px;margin:0 auto;box-sizing:border-box;}
+
 </style>
 </head>
 <body>
 <header><div class="wrap"><a class="brand" href="../index.html" aria-label="Deskwork Tools"><img src="/images/deskwork-tools-brand-logo.png?v=20260918" alt="Deskwork Tools" class="site-logo" width="138" height="44"></a><a class="back-link" href="index.html">&larr; All posts</a></div></header>
-<main><div class="wrap"><article><div class="bap-body">
+<main><div class="wrap bap-wrap"><div class="bap-layout"><article class="bap-article"><div class="bap-body">
 <span class="bap-category">Resume &amp; Career</span>
 <h1>How to Choose the Right Resume Format for Your Job Search</h1>
 <div class="bap-excerpt">Chronological, skills-based, or something in between? A practical guide to choosing a resume format that fits your experience and the job you actually want.</div>
 <div class="bap-byline">By Deskwork &bull; September 12, 2026 &bull; 8 min read</div>
-<div class="ad-slot">Ad space - 728 &times; 90 leaderboard placeholder</div>
 <div class="bap-content">
 <p>Choosing a resume format sounds simple until you open a template collection and see ten different layouts staring back at you. One has a sidebar. Another puts skills at the top. A third looks almost like a traditional application form. Then there are templates that promise to be "perfect for any job," which is usually where things get confusing.</p>
 <p>The truth is that the best resume format is not necessarily the most attractive one. It is the format that makes your particular background easy to understand and puts the information that matters most in the right place.</p>
@@ -77,8 +93,10 @@ h1{font-family:'Fraunces',serif;font-size:2.25rem;margin:0 0 12px;line-height:1.
 <p>Choose a chronological format when your career history tells a clear and relevant story. Give education, projects, and skills more room when you are starting out. If you are changing direction, use the format to make the connection between your past experience and your next role obvious.</p>
 <p><a href="../index.html">Start with a free Deskwork resume template &rarr;</a></p>
 </div>
-<div class="ad-slot">Ad space - 300 &times; 250 rectangle placeholder</div>
-</div></article></div></main>
+<div class="ad-slot-native-wrap"><div id="ad-slot-blog-native" class="ad-slot-native"></div></div>
+</div></article>
+<aside class="bap-sidebar" aria-label="Advertisement Sidebar"><div class="bap-sidebar-sticky"><div id="ad-slot-blog-sidebar" class="ad-slot-sidebar"></div></div></aside>
+</div></div></main>
 <footer>
   <div class="wrap" style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;">
     <a href="../index.html">All Tools</a>
@@ -89,5 +107,6 @@ h1{font-family:'Fraunces',serif;font-size:2.25rem;margin:0 0 12px;line-height:1.
     <a href="../contact.html">Contact Us</a>
   </div>
 </footer>
+<script src="../src/ads-loader.js" defer></script>
 </body>
 </html>

@@ -1,5 +1,26 @@
 {
-  "globalEnabled": false,
-  "providers": {},
-  "placements": []
+  "globalEnabled": true,
+  "providers": {
+    "adsterra": {
+      "placementKey": "b047c39266c4868af360cc07dcb3b2b1"
+    }
+  },
+  "placements": [
+    {
+      "id": "ad-blog-mid",
+      "location": "content",
+      "provider": "adsterra",
+      "device": "all",
+      "adUnitId": "82e5b788b04bbe625f35dbcef14fce92",
+      "format": "rectangle"
+    },
+    {
+      "id": "ad-blog-sidebar",
+      "location": "sidebar",
+      "provider": "adsterra",
+      "device": "desktop",
+      "adUnitId": "b047c39266c4868af360cc07dcb3b2b1",
+      "format": "banner"
+    }
+  ]
 }

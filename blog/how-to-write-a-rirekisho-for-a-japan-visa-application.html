@@ -46,6 +46,23 @@
     h1{font-size:1.65rem;}
     .bap-content{font-size:.98rem;}
   }
+
+.bap-layout{display:flex;flex-direction:column;gap:24px;width:100%;}
+.bap-article{flex:1;min-width:0;width:100%;}
+.bap-sidebar{display:none;}
+@media(min-width:1024px){
+  .wrap.bap-wrap{max-width:1000px;}
+  .bap-layout{flex-direction:row;align-items:flex-start;justify-content:center;}
+  .bap-article{max-width:760px;}
+  .bap-sidebar{display:block;width:190px;flex-shrink:0;}
+  .bap-sidebar-sticky{position:sticky;top:24px;display:flex;flex-direction:column;align-items:center;}
+}
+@media(max-width:1023px){
+  .bap-sidebar{display:none !important;visibility:hidden !important;height:0 !important;overflow:hidden !important;}
+}
+.ad-slot-native-wrap{margin:32px 0 20px;clear:both;}
+.ad-slot-sidebar{width:160px;min-height:300px;margin:0 auto;box-sizing:border-box;}
+
 </style>
 </head>
 <body>
@@ -55,15 +72,12 @@
     <a class="back-link" href="index.html">&larr; All posts</a>
   </div>
 </header>
-<main>
-  <div class="wrap">
-    <article>
+<main><div class="wrap bap-wrap"><div class="bap-layout"><article class="bap-article">
       <div class="bap-body">
         <span class="bap-category">Guides</span>
         <h1>How to Write a Rirekisho (履歴書) for a Japan Visa Application</h1>
         <div class="bap-excerpt">A practical guide to Japan's standard resume format - what it needs, common mistakes, and a free template to fill it out in minutes.</div>
         <div class="bap-byline">By Deskwork &bull; September 9, 2026 &bull; 2 min read</div>
-        <div class="ad-slot">Ad space - 728 &times; 90 leaderboard placeholder</div>
         <div class="bap-content">
           <p>If you're applying for a job or a visa in Japan - especially under programs like Specified Skilled Worker (SSW) or Technical Intern Training - you'll almost certainly be asked for a <strong>rirekisho (履歴書)</strong>, Japan's standardized resume format. It looks nothing like a Western CV, and getting the structure wrong can genuinely hurt an application, even when the person's actual qualifications are strong.</p>
           <h2>Why the Format Matters So Much</h2>
@@ -89,11 +103,10 @@
           <h2>A Faster Way to Fill One Out</h2>
           <p>Every section above - with bilingual Japanese and English labels - can be filled out directly on the <a href="../index.html#rirekisho">Japan Format tool</a> on Deskwork. It's free, needs no login, and lets you download a properly formatted, ready-to-submit document when you're finished.</p>
         </div>
-        <div class="ad-slot">Ad space - 300 &times; 250 rectangle placeholder</div>
-      </div>
-    </article>
-  </div>
-</main>
+        <div class="ad-slot-native-wrap"><div id="ad-slot-blog-native" class="ad-slot-native"></div></div>
+      </div></article>
+<aside class="bap-sidebar" aria-label="Advertisement Sidebar"><div class="bap-sidebar-sticky"><div id="ad-slot-blog-sidebar" class="ad-slot-sidebar"></div></div></aside>
+</div></div></main>
 <footer>
   <div class="wrap" style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;">
     <a href="../index.html">All Tools</a>
@@ -104,5 +117,6 @@
     <a href="../contact.html">Contact Us</a>
   </div>
 </footer>
+<script src="../src/ads-loader.js" defer></script>
 </body>
 </html>
